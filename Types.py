@@ -27,3 +27,12 @@ def to_uchar(v):
 def to_bool(v):
     return struct.pack("?", v)
 
+def to_compactSize_uint(v):
+	if 0xfd > v:
+		return struct.pack("<B", length)
+	elif 0xffff > v:
+		return "FD".decode("hex") + struct.pack("<H", length)
+	elif 0xffffffff > v:
+		return "FE".decode("hex") + struct.pack("<I", length)
+	else:
+		return "FF".decode("hex") + struct.pack("<Q", length)
