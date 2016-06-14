@@ -1,7 +1,7 @@
 import hashlib
-import time
-import random
-from dataTypes import *
+
+from Utils.dataTypes import *
+
 
 class Header(): # Takes two arguments, the payload of the message and the message command
     def __init__(self, payload, command):

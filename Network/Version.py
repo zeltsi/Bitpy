@@ -1,6 +1,8 @@
 import time
 import random
-from dataTypes import *
+
+from Utils.dataTypes import *
+
 
 class Version():
     def __init__(self):

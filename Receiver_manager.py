@@ -13,8 +13,14 @@ class Receiver_manager(Thread):
         while True:
             try:
                 msg = self.sock.recv(1024)
+
+                if len(msg) <= 0:
+                    raise Exception("Node disconnected (received 0bit length message)")
+
                 print "Message received from node: ", msg
 
             except Exception as e:
                 print e
-                sys.exit(0)
+                break
+
+        print "Exit receiver Thread"

@@ -1,7 +1,7 @@
 import hashlib
 import time
 import random
-from dataTypes import *
+from Utils.dataTypes import *
 import Header
 import Version
 
