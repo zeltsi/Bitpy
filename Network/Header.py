@@ -20,4 +20,4 @@ class Header(): # Takes two arguments, the payload of the message and the messag
         return check
 
     def forge(self):
-        return self.magic + self.command + self.length + self.checksum + self.payload
+        return self.magic + self.command + self.length + self.checksum

@@ -5,7 +5,9 @@ from dataTypes import *
 import Header
 import Version
 
+#not really useful
 
+"""
 class PacketCreator(): # Takes two arguments: a Header object and a Payload object
     def __init__(self, payload, header):
         self.payload = payload.forge()
@@ -13,17 +15,7 @@ class PacketCreator(): # Takes two arguments: a Header object and a Payload obje
 
     def forge(self):
         return self.header +  self.payload
-
-
-
-if "__main__"  == __name__:
-    payload = Version.Version()
-    header = Header.Header(payload, "version")
-
-    packet = PacketCreator(header,payload)
-
-    print packet.forge()
-
+"""
 
 
 
