@@ -27,12 +27,12 @@ def to_uchar(v):
 def to_bool(v):
     return struct.pack("?", v)
 
-def to_compactSize_uint(v):
+def to_compactSize_uint(v):  	#New type which is requierd by the bitcoin protocol
 	if 0xfd > v:
-		return struct.pack("<B", length)
+		return struct.pack("<B", v)
 	elif 0xffff > v:
-		return "FD".decode("hex") + struct.pack("<H", length)
+		return "FD".decode("hex") + struct.pack("<H", v)
 	elif 0xffffffff > v:
-		return "FE".decode("hex") + struct.pack("<I", length)
+		return "FE".decode("hex") + struct.pack("<I", v)
 	else:
-		return "FF".decode("hex") + struct.pack("<Q", length)
+		return "FF".decode("hex") + struct.pack("<Q", v)
