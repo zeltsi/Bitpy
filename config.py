@@ -1,1 +1,0 @@
-magic_number = "F9BEB4D9".decode("hex") # The Main network magic number

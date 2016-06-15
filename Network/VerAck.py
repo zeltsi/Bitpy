@@ -1,7 +1,4 @@
-import time
-import random
-
-from Utils.dataTypes import *
+import PacketCreator
 
 
 class VerAck():
@@ -9,5 +6,7 @@ class VerAck():
         #Verack messages have an empty payload
         pass
 
-    def forge(self):
+    def forgePayload(self):
         return ""
+
+VerAck_msg = PacketCreator.packet(VerAck().forgePayload(), "VerAck")

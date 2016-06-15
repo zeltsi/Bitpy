@@ -1,12 +1,10 @@
-import time
-import random
-
-from Utils.dataTypes import *
+import PacketCreator
+import Utils.dataTypes
 
 
 class Pong():
     def __init__(self,ping_received):
         self.nonce = ping_received
 
-    def forge(self):
+    def forgePayload(self):
         return self.nonce

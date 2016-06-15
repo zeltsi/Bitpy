@@ -15,9 +15,9 @@ class Header(): # Takes two arguments, the payload of the message and the messag
         command = command + (12 - len(command)) * "\00"
         return command
 
-    def checksum(self):
+    def get_checksum(self):
         check = hashlib.sha256(hashlib.sha256(self.payload).digest()).digest()[:4]
         return check
 
-    def forge(self):
+    def forge_header(self):
         return self.magic + self.command + self.length + self.checksum

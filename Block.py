@@ -28,3 +28,5 @@ class BlockHeader:
         print "Command name	:\t %s" % self.command
         print "Payload size	:\t %s" % self.payloadSize
         print "Checksum	:\t\t %s" % hash_to_string(self.checksum)
+
+
