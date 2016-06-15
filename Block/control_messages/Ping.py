@@ -12,6 +12,5 @@ class EncodePing():
 
 class DecodePing():
     def __init__(self):
-        self.command_name = "ping"
         self.nonce = Utils.dataTypes.to_uint64(random.getrandbits(64))
 

@@ -3,17 +3,9 @@ __author__ = "Shlomi Zeltsinger, Alexis Gallepe"
 import Queue
 
 from Manager import ReceiverManager, SenderManager
-from Block.PacketCreator import PacketCreator
-from Block.control_messages.Version import EncodeVersion
 from Network import Connection
+from Manager import core_manager
 
-
-def test_send_version(senderQueue):
-
-    version = EncodeVersion()
-    packet = PacketCreator(version)
-
-    senderQueue.put(packet.forge_packet())
 
 
 def main():
@@ -25,14 +17,14 @@ def main():
     sock = Connection.connect()
 
     #Start receiver Thread that will loop for node messages
-    receiver = ReceiverManager.ReceiverManager(sock)
+    receiver = ReceiverManager.ReceiverManager(sock,senderQueue)
     receiver.start()
 
     #Start Sender Thread that will loop for messages to send to node
     sender = SenderManager.SenderManager(sock,senderQueue)
     sender.start()
 
-    test_send_version(senderQueue)
+    core_manager.Manager(senderQueue)
 
 if "__main__"  == __name__:
     main()
