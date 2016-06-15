@@ -23,9 +23,10 @@ class HeaderParser:
 
         self.header_size = end
 
-    def toString(self):
+    def to_string(self):
         print "-------------------------------"
         print "Magic:\t %s" % self.magic
         print "Command name	:\t %s" % self.command
         print "Payload size	:\t %s" % self.payload_size
         print "Checksum	:\t\t %s" % hash_to_string(self.checksum)
+        print "header Size:\t\t %s" % self.header_size

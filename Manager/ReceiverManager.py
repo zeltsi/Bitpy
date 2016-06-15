@@ -1,6 +1,6 @@
 __author__ = 'alexisgallepe'
 
-from Network.HeaderParser import HeaderParser
+from Block.HeaderParser import HeaderParser
 from threading import Thread
 
 class ReceiverManager(Thread):
@@ -17,9 +17,8 @@ class ReceiverManager(Thread):
                 if len(msg) <= 0:
                     raise Exception("Node disconnected (received 0bit length message)")
 
-                print "Message received from node: ", msg
                 header = HeaderParser(msg)
-                print header.toString()
+                header.to_string()
 
             except Exception as e:
                 print e

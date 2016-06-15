@@ -1,27 +1,11 @@
 __author__ = "Shlomi Zeltsinger, Alexis Gallepe"
 
-import socket
-import sys
 import Queue
 
-import ReceiverManager
-import SenderManager
-from Network.PacketCreator import PacketCreator
-from Network.control_messages.Version import EncodeVersion
-
-HOST = "66.90.137.89"
-PORT = 8333
-
-def connect_to_node():
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-    try:
-        sock.connect((HOST, PORT))
-    except Exception as e:
-        print e
-        sys.exit(0)
-
-    return sock
+from Manager import ReceiverManager, SenderManager
+from Block.PacketCreator import PacketCreator
+from Block.control_messages.Version import EncodeVersion
+from Network import Connection
 
 
 def test_send_version(senderQueue):
@@ -38,7 +22,7 @@ def main():
     senderQueue = Queue.Queue()
 
     #Connexion to our node
-    sock = connect_to_node()
+    sock = Connection.connect()
 
     #Start receiver Thread that will loop for node messages
     receiver = ReceiverManager.ReceiverManager(sock)
