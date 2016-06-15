@@ -3,7 +3,7 @@ import hashlib
 from Utils.dataTypes import *
 
 
-class packet(): # Takes two arguments, the payload of the message and the message command
+class Packet(): # Takes two arguments, the payload of the message and the message command
     def __init__(self, payload, command):
         self.payload = payload  # The message payload
         self.magic = to_hexa("F9BEB4D9")  # The Magic number of the Main network -> This message will be accepted by the main network

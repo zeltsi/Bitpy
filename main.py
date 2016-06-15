@@ -5,7 +5,7 @@ import sys
 import Receiver_manager
 import Sender_manager
 import Queue
-from Network.Header import Header
+from Network.PacketCreator import Packet
 from Network.Version import Version
 
 HOST = "66.90.137.89"
@@ -26,10 +26,10 @@ def connect_to_node():
 def test_send_version(senderQueue):
 
     payload = Version()
-    header = Header(payload, "version")
+    payloadForged = payload.forge()
+    packet = Packet(payloadForged, "version")
 
-    forgedPacket = header.forge() + payload.forge()
-    senderQueue.put(forgedPacket)
+    senderQueue.put(packet.forge_packet())
 
 
 def main():

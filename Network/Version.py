@@ -23,12 +23,9 @@ class Version():
         self.starting_height = to_int32(latest_known_block)
         self.relay = to_bool(False)
 
-    def forgePayload(self):
+    def forge(self):
         return self.version + self.services + self.timestamp + \
                self.addr_recv_services + self.addr_recv_ip + self.addr_recv_port + \
                self.addr_trans_services + self.addr_trans_ip + self.addr_trans_port + \
                self.nonce + self.user_agent_bytes + self.starting_height + \
                self.relay
-
-verssion_msg = PacketCreator.packet(Version().forgePayload(), "version")
-print verssion_msg.forge_packet().encode("hex")
