@@ -94,3 +94,4 @@ ENV/
 
 #pycharm
 .idea
+.idea/**/
