@@ -91,3 +91,6 @@ ENV/
 .ropeproject
 
 .gitignore
+
+#pycharm
+.idea
