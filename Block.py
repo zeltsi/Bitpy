@@ -20,7 +20,7 @@ class BlockHeader:
         start = end
         end += 4
         self.checksum =  block[start:end]
-        
+
 
     def toString(self):
         print "-------------------------------"
