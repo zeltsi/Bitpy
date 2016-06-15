@@ -1,5 +1,8 @@
 import struct
 
+
+
+####### ENCODE #######
 def to_int32(v):
     return struct.pack("i", v)
 
@@ -36,3 +39,40 @@ def to_compactSize_uint(v):  	#New type which is required by the bitcoin protoco
         return "FE".decode("hex") + struct.pack("<I", v)
     else:
         return "FF".decode("hex") + struct.pack("<Q", v)
+
+
+
+###### DECODE ######
+
+def from_int32(v):
+    return struct.unpack("i", v)
+
+def from_uint32(v):
+    return struct.unpack("I", v)
+
+def from_int64(v):
+    return struct.unpack("q", v)
+
+def from_uint64(v):
+    return struct.unpack("Q", v)
+
+def from_big_endian_16char(v):
+    return struct.unpack(">16s", v)
+
+def from_big_endian_uint16(v):
+    return struct.unpack(">H", v)
+
+def from_hexa(v):
+    return v.encode("hex")
+
+def from_uchar(v):
+    return struct.unpack("B", v)
+
+def from_bool(v):
+    return struct.unpack("?", v)
+
+def hash_to_string(bytebuffer):
+    return ''.join(('%02x' % ord(a)) for a in bytebuffer)
+
+
+

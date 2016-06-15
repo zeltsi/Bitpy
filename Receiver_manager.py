@@ -1,6 +1,7 @@
 __author__ = 'alexisgallepe'
 
 import sys
+import Block
 from threading import Thread
 
 class Receiver_manager(Thread):
@@ -18,6 +19,8 @@ class Receiver_manager(Thread):
                     raise Exception("Node disconnected (received 0bit length message)")
 
                 print "Message received from node: ", msg
+                header = Block.BlockHeader(msg)
+                print header.toString()
 
             except Exception as e:
                 print e
