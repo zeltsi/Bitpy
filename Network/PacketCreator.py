@@ -23,4 +23,4 @@ class packet(): # Takes two arguments, the payload of the message and the messag
         return self.magic + self.command + self.length + self.checksum
 
     def forge_packet(self):
-        return self.magic + self.command + self.length + self.checksum + self.payload
+        return self.forge_header() + self.payload
