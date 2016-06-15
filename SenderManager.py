@@ -2,8 +2,7 @@ __author__ = 'alexisgallepe'
 
 from threading import Thread
 
-
-class Sender_manager(Thread):
+class SenderManager(Thread):
 
     def __init__(self,sock, queue):
         Thread.__init__(self)

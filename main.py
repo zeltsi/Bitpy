@@ -2,11 +2,12 @@ __author__ = "Shlomi Zeltsinger, Alexis Gallepe"
 
 import socket
 import sys
-import Receiver_manager
-import Sender_manager
 import Queue
-from Network.PacketCreator import Packet
-from Network.Version import Version
+
+import ReceiverManager
+import SenderManager
+from Network.PacketCreator import PacketCreator
+from Network.control_messages.Version import EncodeVersion
 
 HOST = "66.90.137.89"
 PORT = 8333
@@ -25,9 +26,8 @@ def connect_to_node():
 
 def test_send_version(senderQueue):
 
-    payload = Version()
-    payloadForged = payload.forge()
-    packet = Packet(payloadForged, "version")
+    version = EncodeVersion()
+    packet = PacketCreator(version)
 
     senderQueue.put(packet.forge_packet())
 
@@ -41,11 +41,11 @@ def main():
     sock = connect_to_node()
 
     #Start receiver Thread that will loop for node messages
-    receiver = Receiver_manager.Receiver_manager(sock)
+    receiver = ReceiverManager.ReceiverManager(sock)
     receiver.start()
 
     #Start Sender Thread that will loop for messages to send to node
-    sender = Sender_manager.Sender_manager(sock,senderQueue)
+    sender = SenderManager.SenderManager(sock,senderQueue)
     sender.start()
 
     test_send_version(senderQueue)

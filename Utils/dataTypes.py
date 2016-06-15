@@ -1,7 +1,5 @@
 import struct
 
-
-
 ####### ENCODE #######
 def to_int32(v):
     return struct.pack("i", v)

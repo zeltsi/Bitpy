@@ -1,10 +1,9 @@
 __author__ = 'alexisgallepe'
 
-import sys
-import Block
+from Network.HeaderParser import HeaderParser
 from threading import Thread
 
-class Receiver_manager(Thread):
+class ReceiverManager(Thread):
 
     def __init__(self,sock):
         Thread.__init__(self)
@@ -19,7 +18,7 @@ class Receiver_manager(Thread):
                     raise Exception("Node disconnected (received 0bit length message)")
 
                 print "Message received from node: ", msg
-                header = Block.BlockHeader(msg)
+                header = HeaderParser(msg)
                 print header.toString()
 
             except Exception as e:
