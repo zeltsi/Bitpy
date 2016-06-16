@@ -59,13 +59,16 @@ class ReceiverManager(Thread):
             #addr = Addr.DecodeAddr(payloadStream)
             pass
 
-        if headerParsed.command.startswith('pong'):
+        elif headerParsed.command.startswith('pong'):
             pong = Pong.DecodedPong(payloadStream)
             self.log(pong.get_decoded_info())
 
-        if headerParsed.command.startswith('version'):
+        elif headerParsed.command.startswith('version'):
             version = Version.DecodedVersion(payloadStream)
             self.log(version.get_decoded_info())
+
+
+
 
     def log(self,messages):
         self.outfile.write(messages)
