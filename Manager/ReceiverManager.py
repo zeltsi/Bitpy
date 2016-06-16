@@ -28,10 +28,10 @@ class ReceiverManager(Thread):
 
                 message = BytesIO(messageReceived)
 
-                header = HeaderParser(message)
-                payload = message.read(header.header_size)
+                headerParsed = HeaderParser(message)
+                payloadStream = message.read(headerParsed.header_size)
 
-                self.manager(header,payload)
+                self.manager(headerParsed,payloadStream)
 
             except Exception as e:
                 print e
@@ -40,13 +40,13 @@ class ReceiverManager(Thread):
         print "Exit receiver Thread"
 
 
-    def manager(self,header,payload):
+    def manager(self,headerParsed,payloadStream):
 
-        self.log(header.to_string())
+        self.log(headerParsed.to_string())
 
-        if header.command.startswith( 'ping' ):
+        if headerParsed.command.startswith( 'ping' ):
+            ping = Ping.DecodePing(payloadStream)
 
-            ping = Ping.DecodePing(payload)
             pong = Pong.EncodePong(ping.nounce)
             packet = PacketCreator(pong)
 

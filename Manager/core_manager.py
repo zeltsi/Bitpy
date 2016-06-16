@@ -14,10 +14,10 @@ class Manager:
 
     def get_order_client(self):
         while True:
-            print "enter order"
+            print "Enter your command number:"
             print "0: Version"
             print "1: verack"
-            print "2: ping"
+            print "2: Ping"
 
             cmd = int(input(">"))
             self.order(cmd)
