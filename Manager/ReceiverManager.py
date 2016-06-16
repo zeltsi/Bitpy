@@ -7,6 +7,7 @@ from Packets.data_messages import *
 
 from io import BytesIO
 from threading import Thread
+import sys
 
 class ReceiverManager(Thread):
 
@@ -26,12 +27,10 @@ class ReceiverManager(Thread):
                 if len(messageReceived) <= 0:
                     raise Exception("Node disconnected (received 0bit length message)")
 
-                message = BytesIO(messageReceived)
+                messageStream = BytesIO(messageReceived)
+                headerParsed = HeaderParser(messageStream)
 
-                headerParsed = HeaderParser(message)
-                payloadStream = message.read(headerParsed.header_size)
-
-                self.manager(headerParsed,payloadStream)
+                self.manager(headerParsed,messageStream)
 
             except Exception as e:
                 print e
@@ -42,15 +41,20 @@ class ReceiverManager(Thread):
 
     def manager(self,headerParsed,payloadStream):
 
-        self.log(headerParsed.to_string())
+        print(headerParsed.to_string())
 
         if headerParsed.command.startswith( 'ping' ):
             ping = Ping.DecodePing(payloadStream)
 
-            pong = Pong.EncodePong(ping.nounce)
+            pong = Pong.EncodePong(ping.nonce)
             packet = PacketCreator(pong)
 
             self.senderQueue.put( packet.forge_packet() )
+
+        elif headerParsed.command.startswith( 'inv' ):
+            inv = Inv.DecodeInv(payloadStream)
+            self.log( "size:: "+str(inv.size) )
+
 
 
 
