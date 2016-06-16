@@ -14,10 +14,11 @@ class HeaderParser:
         self.header_size = 4+12+4+4
 
     def to_string(self):
-        display = "\n-------------------------------"
+        display = "\n-------------HEADER-------------"
         display += "\nMagic:\t %s" % self.magic
         display += "\nCommand name	:\t %s" % self.command
         display += "\nPayload size	:\t %s" % self.payload_size
         display += "\nChecksum	:\t\t %s" % hash_to_string(self.checksum)
         display += "\nheader Size:\t\t %s" % self.header_size
+        display += "\n"
         return display

@@ -1,5 +1,6 @@
 import random
 import time
+import socket
 from Utils.config import version_number, latest_known_block
 from Utils.dataTypes import *
 
@@ -36,48 +37,57 @@ class EncodeVersion():
 class DecodedVersion():
     def __init__(self,version_received):
 
-        self.version        = version_received.read(4)
-        self.services       = version_received.read(8)
-        self.timestamp      = version_received.read(8)
+        self.version        = read_uint32( version_received.read(4) )
+        self.services       = read_uint64( version_received.read(8) )
+        self.timestamp      = read_uint64( version_received.read(8) )
 
-        self.addr_recv_services     = version_received.read(8)
-        self.addr_recv_ip           = version_received.read(16)
-        self.addr_recv_port         = version_received.read(2)
+        self.addr_recv_services     = read_uint64( version_received.read(8) )
+        self.addr_recv_ip           = self.parseIp(version_received.read(16))
+        self.addr_recv_port         = read_big_endian_uint16( version_received.read(2) )
 
-        self.addr_trans_services    = version_received.read(8)
-        self.addr_trans_ip          = version_received.read(16)
-        self.addr_trans_port        = version_received.read(2)
+        self.addr_trans_services    = read_uint64( version_received.read(8) )
+        self.addr_trans_ip          = self.parseIp( version_received.read(16) )
+        self.addr_trans_port        = read_big_endian_uint16(version_received.read(2) )
 
-        self.nonce              = version_received.read(8)
+        self.nonce              = read_uint64( version_received.read(8) )
 
         self.user_agent_bytes   = int(bytes(version_received.read(1)).encode("hex"))
-        self.user_agent         = version_received.read(self.user_agent_bytes)
+        self.user_agent         = read_char(version_received.read(self.user_agent_bytes), self.user_agent_bytes )
 
-        self.starting_height    = version_received.read(4)
-        self.relay              = version_received.read(1)
+        self.starting_height    = read_int32( version_received.read(4) )
+        self.relay              = read_bool( version_received.read(1) )
 
 
     def get_decoded_info(self):
 
         display = "\n-----Version-----"
-        display += "\nversion                :\t\t %s" % read_uint32(self.version)
-        display += "\nservices  	         :\t\t %s" % read_uint64(self.services)
-        display += "\ntimestamp              :\t\t %s" % read_uint64(self.timestamp)
+        display += "\nversion                :\t\t %s" % self.version
+        display += "\nservices  	         :\t\t %s" % self.services
+        display += "\ntimestamp              :\t\t %s" % self.timestamp
 
-        display += "\naddr_recv_services	 :\t\t %s" % read_uint64(self.addr_recv_services)
-        display += "\naddr_recv_ip           :\t\t %s" % read_big_endian_16char(self.addr_recv_ip)
-        display += "\naddr_recv_port         :\t\t %s" % read_big_endian_uint16(self.addr_recv_port)
+        display += "\naddr_recv_services	 :\t\t %s" % self.addr_recv_services
+        display += "\naddr_recv_ip           :\t\t %s" % self.addr_recv_ip
+        display += "\naddr_recv_port         :\t\t %s" % self.addr_recv_port
 
-        display += "\naddr_trans_services  	:\t\t %s" % read_uint64(self.addr_trans_services)
-        display += "\naddr_trans_ip         :\t\t %s" % read_big_endian_16char(self.addr_trans_ip)
-        display += "\naddr_trans_port	    :\t\t %s" % read_big_endian_uint16(self.addr_trans_port)
+        display += "\naddr_trans_services  	:\t\t %s" % self.addr_trans_services
+        display += "\naddr_trans_ip         :\t\t %s" % self.addr_trans_ip
+        display += "\naddr_trans_port	    :\t\t %s" % self.addr_trans_port
 
-        display += "\nnonce                 :\t\t %s" % read_uint64(self.nonce)
+        display += "\nnonce                 :\t\t %s" % self.nonce
 
         #display += "\nuser_agent_bytes  	:\t\t %s" % read_compactSize_uint(self.user_agent_bytes)
-        display += "\nuser_agent            :\t\t %s" % read_char(self.user_agent, self.user_agent_bytes)
-        display += "\nstarting_height	    :\t\t %s" % read_int32(self.starting_height)
-        display += "\nrelay	                :\t\t %s" % read_bool(self.relay)
+        display += "\nuser_agent            :\t\t %s" % self.user_agent
+        display += "\nstarting_height	    :\t\t %s" % self.starting_height
+        display += "\nrelay	                :\t\t %s" % self.relay
 
         return display
 
+
+    def parseIp(self,ip):
+        IPV4_COMPAT = b"\x00" * 10 + b"\xff" * 2
+
+        if bytes(ip[0:12]) == IPV4_COMPAT:
+            ip = socket.inet_ntop(socket.AF_INET, ip[12:16])
+        else: #IPv6
+            ip = socket.inet_ntop(socket.AF_INET6, ip)
+        return ip

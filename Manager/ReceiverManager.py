@@ -64,8 +64,8 @@ class ReceiverManager(Thread):
             self.log(pong.get_decoded_info())
 
         if headerParsed.command.startswith('version'):
-             version = Version.DecodedVersion(payloadStream)
-             self.log(version.get_decoded_info())
+            version = Version.DecodedVersion(payloadStream)
+            self.log(version.get_decoded_info())
 
     def log(self,messages):
         self.outfile.write(messages)

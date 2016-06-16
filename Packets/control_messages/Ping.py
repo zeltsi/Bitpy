@@ -1,10 +1,10 @@
 import random
-import Utils.dataTypes
+from Utils.dataTypes import *
 
 class EncodePing():
     def __init__(self):
         self.command_name = "ping"
-        self.nonce = Utils.dataTypes.to_uint64(random.getrandbits(64))
+        self.nonce = to_uint64(random.getrandbits(64))
 
     def forge(self):
         return self.nonce

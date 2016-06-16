@@ -1,4 +1,4 @@
-import Utils.dataTypes
+from Utils.dataTypes import *
 
 class EncodePong():
     def __init__(self,ping_received):
@@ -16,4 +16,4 @@ class DecodedPong():
         self.nonce = ping_received.read(8)
 
     def get_decoded_info(self):
-        return "\npong   :\t\t %s" %Utils.dataTypes.read_uint64(self.nonce)
+        return "\npong   :\t\t %s" % read_uint64(self.nonce)
