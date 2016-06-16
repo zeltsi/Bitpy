@@ -94,3 +94,6 @@ def read_compactSize_uint(s):  # S is a stream of the payload
     if size == 0xFF:
         return read_uint64(s.read(8))
 
+def read_char(v, length):
+    return struct.unpack(">%ss" %length, v)
+
