@@ -14,6 +14,5 @@ class SenderManager(Thread):
             if not self.queue.empty():
                 order = self.queue.get()
                 self.sock.send(order)
-                print "Message sent to node"
 
         print "Exit sender Thread"

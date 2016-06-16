@@ -1,8 +1,8 @@
 __author__ = 'alexisgallepe'
 
-from Block.PacketCreator import *
-from Block.control_messages import *
-from Block.data_messages import *
+from Packets.PacketCreator import *
+from Packets.control_messages import *
+from Packets.data_messages import *
 
 
 class Manager:

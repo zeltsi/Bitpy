@@ -42,35 +42,55 @@ def to_compactSize_uint(v):  	#New type which is required by the bitcoin protoco
 
 ###### DECODE ######
 
-def from_int32(v):
-    return struct.unpack("i", v)
+def read_int16(v):
+    return struct.unpack("h", v)
 
-def from_uint32(v):
-    return struct.unpack("I", v)
+def read_uint16(v):
+    return struct.unpack("H", v)
 
-def from_int64(v):
-    return struct.unpack("q", v)
-
-def from_uint64(v):
-    return struct.unpack("Q", v)
-
-def from_big_endian_16char(v):
+def read_big_endian_16char(v):
     return struct.unpack(">16s", v)
 
-def from_big_endian_uint16(v):
+def read_big_endian_uint16(v):
     return struct.unpack(">H", v)
 
-def from_hexa(v):
+def read_int32(v):
+    return struct.unpack("i", v)
+
+def read_uint32(v):
+    return struct.unpack("I", v)
+
+def read_int64(v):
+    return struct.unpack("q", v)
+
+def read_uint64(v):
+    return struct.unpack("Q", v)
+
+
+def read_hexa(v):
     return v.encode("hex")
 
-def from_uchar(v):
+def read_uchar(v):
     return struct.unpack("B", v)
 
-def from_bool(v):
+def read_bool(v):
     return struct.unpack("?", v)
 
 def hash_to_string(bytebuffer):
     return ''.join(('%02x' % ord(a)) for a in bytebuffer)
 
+def read_compactSize_uint(s):  # S is a stream of the payload
 
+    # Read an unsigned char to get the format
+    size = ord(s.read(1))
+
+    # Return the value
+    if size < 0xFD:
+        return size
+    if size == 0xFD:
+        return read_uint16(s.read(2))
+    if size == 0xFE:
+        return read_uint32(s.read(4))
+    if size == 0xFF:
+        return read_uint64(s.read(8))
 

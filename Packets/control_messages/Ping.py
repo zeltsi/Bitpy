@@ -11,6 +11,6 @@ class EncodePing():
 
 
 class DecodePing():
-    def __init__(self):
-        self.nonce = Utils.dataTypes.to_uint64(random.getrandbits(64))
+    def __init__(self,payload):
+        self.nonce = payload.read(8)
 
