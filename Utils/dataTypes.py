@@ -1,4 +1,6 @@
 import struct
+import socket
+
 
 ####### ENCODE #######
 def to_int32(v):
@@ -43,38 +45,38 @@ def to_compactSize_uint(v):  	#New type which is required by the bitcoin protoco
 ###### DECODE ######
 
 def read_int16(v):
-    return struct.unpack("h", v)
+    return struct.unpack("h", v)[0]
 
 def read_uint16(v):
-    return struct.unpack("H", v)
+    return struct.unpack("H", v)[0]
 
 def read_big_endian_16char(v):
-    return struct.unpack(">16s", v)
+    return struct.unpack(">16s", v)[0]
 
 def read_big_endian_uint16(v):
-    return struct.unpack(">H", v)
+    return struct.unpack(">H", v)[0]
 
 def read_int32(v):
-    return struct.unpack("i", v)
+    return struct.unpack("i", v)[0]
 
 def read_uint32(v):
-    return struct.unpack("I", v)
+    return struct.unpack("I", v)[0]
 
 def read_int64(v):
-    return struct.unpack("q", v)
+    return struct.unpack("q", v)[0]
 
 def read_uint64(v):
-    return struct.unpack("Q", v)
+    return struct.unpack("Q", v)[0]
 
 
 def read_hexa(v):
     return v.encode("hex")
 
 def read_uchar(v):
-    return struct.unpack("B", v)
+    return struct.unpack("B", v)[0]
 
 def read_bool(v):
-    return struct.unpack("?", v)
+    return struct.unpack("?", v)[0]
 
 def hash_to_string(bytebuffer):
     return ''.join(('%02x' % ord(a)) for a in bytebuffer)
@@ -97,3 +99,14 @@ def read_compactSize_uint(s):  # S is a stream of the payload
 def read_char(v, length):
     return struct.unpack(">%ss" %length, v)
 
+
+def parse_ip(ip):
+    IPV4_COMPAT = b"\x00" * 10 + b"\xff" * 2
+
+    #IPv4
+    if bytes(ip[0:12]) == IPV4_COMPAT:
+        return socket.inet_ntop(socket.AF_INET, ip[12:16])
+
+    #IPv6
+    else:
+        return socket.inet_ntop(socket.AF_INET6, ip)

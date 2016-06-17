@@ -56,8 +56,8 @@ class ReceiverManager(Thread):
             self.log( "size:: "+str(inv.size) )
 
         elif headerParsed.command.startswith( 'addr' ):
-            #addr = Addr.DecodeAddr(payloadStream)
-            pass
+            addr = Addr.DecodeAddr(payloadStream)
+            self.log(addr.get_decoded_info())
 
         elif headerParsed.command.startswith('pong'):
             pong = Pong.DecodedPong(payloadStream)

@@ -42,11 +42,11 @@ class DecodedVersion():
         self.timestamp      = read_uint64( version_received.read(8) )
 
         self.addr_recv_services     = read_uint64( version_received.read(8) )
-        self.addr_recv_ip           = self.parseIp(version_received.read(16))
+        self.addr_recv_ip           = parse_ip(version_received.read(16))
         self.addr_recv_port         = read_big_endian_uint16( version_received.read(2) )
 
         self.addr_trans_services    = read_uint64( version_received.read(8) )
-        self.addr_trans_ip          = self.parseIp( version_received.read(16) )
+        self.addr_trans_ip          = parse_ip( version_received.read(16) )
         self.addr_trans_port        = read_big_endian_uint16(version_received.read(2) )
 
         self.nonce              = read_uint64( version_received.read(8) )
@@ -83,11 +83,6 @@ class DecodedVersion():
         return display
 
 
-    def parseIp(self,ip):
-        IPV4_COMPAT = b"\x00" * 10 + b"\xff" * 2
 
-        if bytes(ip[0:12]) == IPV4_COMPAT:
-            ip = socket.inet_ntop(socket.AF_INET, ip[12:16])
-        else: #IPv6
-            ip = socket.inet_ntop(socket.AF_INET6, ip)
-        return ip
+
+
