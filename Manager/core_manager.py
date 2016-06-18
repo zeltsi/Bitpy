@@ -17,7 +17,8 @@ class Manager:
             print "Enter your command number:"
             print "0: Version"
             print "1: verack"
-            print "2: Ping"
+            print "2: getAddr"
+            print "3: Ping"
 
             cmd = int(input(">"))
             self.order(cmd)
@@ -37,6 +38,12 @@ class Manager:
             self.senderQueue.put( packet.forge_packet() )
 
         elif cmd == 2:
+            getAddr = GetAddr.EncodeGetaddr()
+            packet = PacketCreator(getAddr)
+
+            self.senderQueue.put( packet.forge_packet() )
+
+        elif cmd == 3:
             ping = Ping.EncodePing()
             packet = PacketCreator(ping)
 

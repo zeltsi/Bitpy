@@ -8,9 +8,10 @@ class EncodeVerack():
         return ""
 
 
+#No need this class because, like GetAddr, there is no payload
 class DecodeVerack():
-    def __init__(self):
-        self.command_name = "verack"
+    def __init__(self,payload=""):
+        pass
 
 
 

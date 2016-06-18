@@ -22,7 +22,9 @@ class ReceiverManager(Thread):
     def run(self):
         while True:
             try:
-                messageReceived = self.sock.recv(1024)
+
+                #get only the header of the message
+                messageReceived = self.sock.recv(24)
 
                 if len(messageReceived) <= 0:
                     raise Exception("Node disconnected (received 0bit length message)")
@@ -30,7 +32,11 @@ class ReceiverManager(Thread):
                 messageStream = BytesIO(messageReceived)
                 headerParsed = HeaderParser(messageStream)
 
-                self.manager(headerParsed,messageStream)
+                #get the payload
+                payload = self.recvall(headerParsed.payload_size)
+                payloadStream = BytesIO(payload)
+
+                self.manager(headerParsed,payloadStream)
 
             except Exception as e:
                 print e
@@ -68,6 +74,18 @@ class ReceiverManager(Thread):
             self.log(version.get_decoded_info())
 
 
+    def recvall(self, length):
+        blocks = []
+
+        while length:
+            block = self.sock.recv(length)
+            if not block:
+                raise EOFError('socket closed with %d bytes left in this block'.format(length))
+
+            length -= len(block)
+            blocks.append(block)
+
+        return b''.join(blocks)
 
 
     def log(self,messages):

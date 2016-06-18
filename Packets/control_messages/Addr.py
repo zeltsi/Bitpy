@@ -19,6 +19,7 @@ class DecodeAddr():
         self.nodes = self.decode_nodes(addr_received)
 
 
+
     def decode_nodes(self,payload):
         nodes = []
 
@@ -29,11 +30,9 @@ class DecodeAddr():
                     "ip_address": parse_ip( payload.read(16) ),
                     "port": read_big_endian_uint16( payload.read(2) ),
                 }
-
             nodes.append(node)
 
         return nodes
-
 
 
     def get_decoded_info(self):
@@ -44,6 +43,3 @@ class DecodeAddr():
             display += str(node) + "\n"
 
         return display
-
-
-
