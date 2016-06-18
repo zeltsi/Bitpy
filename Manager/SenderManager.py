@@ -13,6 +13,6 @@ class SenderManager(Thread):
         while True:
             if not self.queue.empty():
                 order = self.queue.get()
-                self.sock.send(order)
+                self.sock.sendall(order)
 
         print "Exit sender Thread"

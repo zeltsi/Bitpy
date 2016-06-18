@@ -21,6 +21,9 @@ def to_big_endian_16char(v):
 def to_big_endian_uint16(v):
     return struct.pack(">H", v)
 
+def to_32char(v):
+    return struct.pack(">32s", v)
+
 def to_hexa(v):
     return v.decode("hex")
 

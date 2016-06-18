@@ -24,13 +24,13 @@ class ReceiverManager(Thread):
             try:
 
                 #get only the header of the message
-                messageReceived = self.sock.recv(24)
+                header = self.sock.recv(24)
 
-                if len(messageReceived) <= 0:
+                if len(header) <= 0:
                     raise Exception("Node disconnected (received 0bit length message)")
 
-                messageStream = BytesIO(messageReceived)
-                headerParsed = HeaderParser(messageStream)
+                headerStream = BytesIO(header)
+                headerParsed = HeaderParser(headerStream)
 
                 #get the payload
                 payload = self.recvall(headerParsed.payload_size)

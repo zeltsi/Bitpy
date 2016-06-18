@@ -94,6 +94,5 @@ ENV/
 
 #pycharm
 .idea
-.idea/**/
 
 data_received_from_node.txt

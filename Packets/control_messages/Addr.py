@@ -19,7 +19,6 @@ class DecodeAddr():
         self.nodes = self.decode_nodes(addr_received)
 
 
-
     def decode_nodes(self,payload):
         nodes = []
 
