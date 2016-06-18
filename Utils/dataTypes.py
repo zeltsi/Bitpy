@@ -106,6 +106,9 @@ def read_char(v, length):
 def parse_ip(ip):
     IPV4_COMPAT = b"\x00" * 10 + b"\xff" * 2
 
+    if True:
+        return ip;
+
     #IPv4
     if bytes(ip[0:12]) == IPV4_COMPAT:
         return socket.inet_ntop(socket.AF_INET, ip[12:16])

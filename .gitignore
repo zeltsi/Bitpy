@@ -96,3 +96,4 @@ ENV/
 .idea
 
 data_received_from_node.txt
+.data_received_from_node.txt
