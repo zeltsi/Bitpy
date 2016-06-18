@@ -5,18 +5,18 @@ class EncodeGetblocks():
     def __init__(self,hashes):
         self.command_name = "getblocks"
 
-        self.version = to_int32(version_number) #ou alors: to_uint32
-        self.hash_count = len(hashes)
+        length_hashes = len(hashes)
+        assert length_hashes > 0 and length_hashes <= 200
+        hashes = sorted(hashes, reverse=True)
 
-        assert self.hash_count > 0 and self.hash_count <= 200
-
-        self.hashes = hashes.sort(reverse=True)
-        self.stop_hash = "0" * 32
+        self.version = to_uint32(version_number) #ou alors: to_uint32
+        self.hash_count = to_compactSize_uint(length_hashes)
+        self.hashes = ''.join( to_32char(e) for e in hashes)
+        self.stop_hash = to_32char("0" * 32)
 
 
     def forge(self):
-        return self.version + str(self.hash_count) + b''.join(self.hashes)
-
+        return self.version + self.hash_count + self.hashes + self.stop_hash
 
 
 class DecodeGetblocks():

@@ -74,6 +74,9 @@ class ReceiverManager(Thread):
             self.log(version.get_decoded_info())
 
 
+
+
+
     def recvall(self, length):
         blocks = []
 

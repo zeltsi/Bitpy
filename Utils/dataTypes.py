@@ -1,6 +1,6 @@
 import struct
 import socket
-
+import platform
 
 ####### ENCODE #######
 def to_int32(v):
@@ -106,8 +106,8 @@ def read_char(v, length):
 def parse_ip(ip):
     IPV4_COMPAT = b"\x00" * 10 + b"\xff" * 2
 
-    if True:
-        return ip;
+    if platform.system() == "windows":
+        return ip
 
     #IPv4
     if bytes(ip[0:12]) == IPV4_COMPAT:
