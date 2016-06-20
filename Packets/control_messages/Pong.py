@@ -1,7 +1,8 @@
 from Utils.dataTypes import *
 
-class EncodePong():
-    def __init__(self,ping_received):
+
+class EncodePong:
+    def __init__(self, ping_received):
         self.command_name = "pong"
 
         self.nonce = ping_received
@@ -10,10 +11,10 @@ class EncodePong():
         return self.nonce
 
 
-class DecodedPong():
-    def __init__(self,ping_received):
+class DecodedPong:
+    def __init__(self, ping_received):
         self.command_name = "pong"
-        self.nonce = read_uint64( ping_received.read(8) )
+        self.nonce = read_uint64(ping_received.read(8))
 
     def get_decoded_info(self):
         return "\npong   :\t\t %s" % self.nonce

@@ -9,6 +9,7 @@ PORT = 8333
     But in the future we will connect to more than one
 """
 
+
 def connect():
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -19,11 +20,3 @@ def connect():
         sys.exit(0)
 
     return sock
-
-
-
-
-
-
-
-

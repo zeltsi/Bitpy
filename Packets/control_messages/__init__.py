@@ -1,2 +1,3 @@
 __author__ = 'alexisgallepe'
-__all__ = ["Version", "Verack", "Ping", "Pong","Addr",'SendHeaders',"GetAddr"]
+__all__ = ["Addr", "Alert", "FilterAdd", "FilterClear", "FilterLoad", "GetAddr", "Ping", "Pong", "Reject",
+           "SendHeaders", "Verack", "Version"]

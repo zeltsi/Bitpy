@@ -7,11 +7,9 @@ from Packets.data_messages import *
 
 from io import BytesIO
 from threading import Thread
-import sys
 
 class ReceiverManager(Thread):
-
-    def __init__(self,sock,senderQueue):
+    def __init__(self, sock, senderQueue):
         Thread.__init__(self)
         self.senderQueue = senderQueue
         self.sock = sock
@@ -23,7 +21,7 @@ class ReceiverManager(Thread):
         while True:
             try:
 
-                #get only the header of the message
+                # get only the header of the message
                 header = self.sock.recv(24)
 
                 if len(header) <= 0:
@@ -32,11 +30,11 @@ class ReceiverManager(Thread):
                 headerStream = BytesIO(header)
                 headerParsed = HeaderParser(headerStream)
 
-                #get the payload
+                # get the payload
                 payload = self.recvall(headerParsed.payload_size)
                 payloadStream = BytesIO(payload)
 
-                self.manager(headerParsed,payloadStream)
+                self.manager(headerParsed, payloadStream)
 
             except Exception as e:
                 print e
@@ -44,24 +42,23 @@ class ReceiverManager(Thread):
 
         print "Exit receiver Thread"
 
-
-    def manager(self,headerParsed,payloadStream):
+    def manager(self, headerParsed, payloadStream):
 
         self.log(headerParsed.to_string())
 
-        if headerParsed.command.startswith( 'ping' ):
+        if headerParsed.command.startswith('ping'):
             ping = Ping.DecodePing(payloadStream)
 
             pong = Pong.EncodePong(ping.nonce)
             packet = PacketCreator(pong)
 
-            self.senderQueue.put( packet.forge_packet() )
+            self.senderQueue.put(packet.forge_packet())
 
-        elif headerParsed.command.startswith( 'inv' ):
+        elif headerParsed.command.startswith('inv'):
             inv = Inv.DecodeInv(payloadStream)
-            self.log( "size:: "+str(inv.size) )
+            self.log("size:: " + str(inv.size))
 
-        elif headerParsed.command.startswith( 'addr' ):
+        elif headerParsed.command.startswith('addr'):
             addr = Addr.DecodeAddr(payloadStream)
             self.log(addr.get_decoded_info())
 
@@ -73,14 +70,10 @@ class ReceiverManager(Thread):
             version = Version.DecodedVersion(payloadStream)
             self.log(version.get_decoded_info())
 
-
-
-
-
     def recvall(self, length):
         blocks = []
 
-        while length:
+        while length > 0:
             block = self.sock.recv(length)
             if not block:
                 raise EOFError('socket closed with %d bytes left in this block'.format(length))
@@ -90,7 +83,6 @@ class ReceiverManager(Thread):
 
         return b''.join(blocks)
 
-
-    def log(self,messages):
+    def log(self, messages):
         self.outfile.write(messages)
         self.outfile.flush()
