@@ -14,7 +14,7 @@ def main():
     # Connexion to our node
     sock = Connection.connect()
 
-    # Start receiver Thread that will loop for node messages
+    # Start receiver Thread that will loop for incoming node messages
     receiver = ReceiverManager.ReceiverManager(sock, senderQueue)
     receiver.start()
 

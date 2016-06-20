@@ -89,6 +89,9 @@ def read_uint64(v):
     return struct.unpack("Q", v)[0]
 
 
+def read_32char(v):
+    return struct.unpack("32s", v)
+
 def read_hexa(v):
     return v.encode("hex")
 

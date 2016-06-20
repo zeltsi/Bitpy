@@ -21,12 +21,25 @@ class EncodeGetblocks:
 
 
 class DecodeGetblocks:
-    def __init__(self, getblocks_received):
-        pass
+    def __init__(self, payload):
+        self.version = read_uint32(payload.read(4))
+        self.hash_count = read_compactSize_uint(payload)
+        self.hashes = self.parse_hashes(payload)
+
+
+    def parse_hashes(self,payload):
+        hashes = []
+
+        for _ in range(self.hash_count):
+            hashes.append(read_32char(payload.read(32)))
+
+        return hashes
+
 
     def get_decoded_info(self):
         display = "\n-----GetBlocks-----"
-
-        # TODO
-
+        display += "\nVersion:\t %s" % self.version
+        display += "\nHash count	:\t %s" % self.hash_count
+        display += "\nHashes	:\n %s" % str(self.hashes)
+        display += "\n"
         return display

@@ -13,11 +13,11 @@ class EncodeVersion:
         self.services = to_uint64(0)
         self.timestamp = to_int64(time.time())
 
-        self.addr_recv_services = to_uint64(0)  # services
+        self.addr_recv_services = to_uint64(0)
         self.addr_recv_ip = to_big_endian_16char("127.0.0.1")
         self.addr_recv_port = to_big_endian_uint16(8333)
 
-        self.addr_trans_services = to_uint64(0)  # services
+        self.addr_trans_services = to_uint64(0)
         self.addr_trans_ip = to_big_endian_16char("127.0.0.1")
         self.addr_trans_port = to_big_endian_uint16(8333)
 
