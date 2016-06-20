@@ -21,7 +21,7 @@ class ReceiverManager(Thread):
         while True:
             try:
 
-                # get only the header of the message
+                # get only the header's message
                 header = self.sock.recv(24)
 
                 if len(header) <= 0:
@@ -56,7 +56,7 @@ class ReceiverManager(Thread):
 
         elif headerParsed.command.startswith('inv'):
             inv = Inv.DecodeInv(payloadStream)
-            self.log("size:: " + str(inv.size))
+            self.log(inv.get_decoded_info())
 
         elif headerParsed.command.startswith('addr'):
             addr = Addr.DecodeAddr(payloadStream)

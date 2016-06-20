@@ -20,6 +20,7 @@ class EncodeGetblocks:
         return self.version + self.hash_count + self.hashes + self.stop_hash
 
 
+
 class DecodeGetblocks:
     def __init__(self, payload):
         self.version = read_uint32(payload.read(4))
@@ -40,6 +41,9 @@ class DecodeGetblocks:
         display = "\n-----GetBlocks-----"
         display += "\nVersion:\t %s" % self.version
         display += "\nHash count	:\t %s" % self.hash_count
-        display += "\nHashes	:\n %s" % str(self.hashes)
-        display += "\n"
+        display += "\nHashes	:\n"
+
+        for hash in self.hashes:
+            display += str(hash) + "\n"
+
         return display

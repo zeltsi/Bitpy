@@ -15,15 +15,15 @@ class EncodeAddr:
         return self.number_nodes + self.nodes
 
     def encode_nodes(self,nodes):
-        encodeNodes = b""
+        encoded_nodes = b""
 
         for node in nodes:
-            encodeNodes += to_uint32(node["time"])
-            encodeNodes += to_uint64(node["services"])
-            encodeNodes += to_big_endian_16char(node["ip_address"])
-            encodeNodes += to_big_endian_uint16(node["port"])
+            encoded_nodes += to_uint32(node["time"])
+            encoded_nodes += to_uint64(node["services"])
+            encoded_nodes += to_big_endian_16char(node["ip_address"])
+            encoded_nodes += to_big_endian_uint16(node["port"])
 
-        return encodeNodes
+        return encoded_nodes
 
 
 
@@ -50,6 +50,7 @@ class DecodeAddr:
     def get_decoded_info(self):
         display = "\n-----Addr-----"
         display += "\nNumber IP address                :\t\t %s \n" % self.number_nodes
+        display += "\nNodes	:\n"
 
         for node in self.nodes:
             display += str(node) + "\n"
