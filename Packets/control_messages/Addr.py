@@ -2,12 +2,29 @@ from Utils.dataTypes import *
 
 
 class EncodeAddr:
-    def __init__(self):
+    def __init__(self,nodes):
         self.command_name = "addr"
 
+        length_nodes = len(nodes)
+        assert length_nodes > 0
+        
+        self.number_nodes = to_compactSize_uint(length_nodes)
+        self.nodes = self.encode_nodes(nodes)
+
     def forge(self):
-        # TODO
-        pass
+        return self.number_nodes + self.nodes
+
+    def encode_nodes(self,nodes):
+        encodeNodes = b""
+
+        for node in nodes:
+            encodeNodes += to_uint32(node["time"])
+            encodeNodes += to_uint64(node["services"])
+            encodeNodes += to_big_endian_16char(node["ip_address"])
+            encodeNodes += to_big_endian_uint16(node["port"])
+
+        return encodeNodes
+
 
 
 class DecodeAddr:
