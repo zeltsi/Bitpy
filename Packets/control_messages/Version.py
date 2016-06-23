@@ -35,26 +35,26 @@ class EncodeVersion:
 
 
 class DecodedVersion:
-    def __init__(self, version_received):
-        self.version = read_uint32(version_received.read(4))
-        self.services = read_uint64(version_received.read(8))
-        self.timestamp = read_uint64(version_received.read(8))
+    def __init__(self, payload):
+        self.version = read_uint32(payload.read(4))
+        self.services = read_uint64(payload.read(8))
+        self.timestamp = read_uint64(payload.read(8))
 
-        self.addr_recv_services = read_uint64(version_received.read(8))
-        self.addr_recv_ip = parse_ip(version_received.read(16))
-        self.addr_recv_port = read_big_endian_uint16(version_received.read(2))
+        self.addr_recv_services = read_uint64(payload.read(8))
+        self.addr_recv_ip = parse_ip(payload.read(16))
+        self.addr_recv_port = read_big_endian_uint16(payload.read(2))
 
-        self.addr_trans_services = read_uint64(version_received.read(8))
-        self.addr_trans_ip = parse_ip(version_received.read(16))
-        self.addr_trans_port = read_big_endian_uint16(version_received.read(2))
+        self.addr_trans_services = read_uint64(payload.read(8))
+        self.addr_trans_ip = parse_ip(payload.read(16))
+        self.addr_trans_port = read_big_endian_uint16(payload.read(2))
 
-        self.nonce = read_uint64(version_received.read(8))
+        self.nonce = read_uint64(payload.read(8))
 
-        self.user_agent_bytes = int(bytes(version_received.read(1)).encode("hex"))
-        self.user_agent = read_char(version_received.read(self.user_agent_bytes), self.user_agent_bytes)
+        self.user_agent_bytes = int(bytes(payload.read(1)).encode("hex"))
+        self.user_agent = read_char(payload.read(self.user_agent_bytes), self.user_agent_bytes)
 
-        self.starting_height = read_int32(version_received.read(4))
-        self.relay = read_bool(version_received.read(1))
+        self.starting_height = read_int32(payload.read(4))
+        self.relay = read_bool(payload.read(1))
 
     def get_decoded_info(self):
         display = "\n-----Version-----"
