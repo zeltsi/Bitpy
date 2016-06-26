@@ -131,7 +131,7 @@ def read_char(v, length):
 def parse_ip(ip):
     IPV4_COMPAT = b"\x00" * 10 + b"\xff" * 2
 
-    if platform.system() == "windows":
+    if platform.system() == "Windows":
         return ip
 
     # IPv4
