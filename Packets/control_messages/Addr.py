@@ -28,10 +28,10 @@ class EncodeAddr:
 
 
 class DecodeAddr:
-    def __init__(self, addr_received):
+    def __init__(self, payload):
 
-        self.number_nodes = read_compactSize_uint(addr_received)
-        self.nodes = self.decode_nodes(addr_received)
+        self.number_nodes = read_compactSize_uint(payload)
+        self.nodes = self.decode_nodes(payload)
 
     def decode_nodes(self, payload):
         nodes = []

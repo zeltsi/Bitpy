@@ -29,7 +29,7 @@ class DecodedBlock:
 
         # Transactions
         self.txn_count = read_compactSize_uint(payload)
-        self.txns = self.get_transactions(payload.read(16))
+        self.txns = self.get_transactions(payload)
 
 
     def get_transactions(self, payload):
@@ -39,10 +39,10 @@ class DecodedBlock:
 
             version = read_uint32(payload.read(4))
 
-            tx_in_count =   read_compactSize_uint(payload)
+            tx_in_count = read_compactSize_uint(payload)
             tx_in = self.get_txIn(payload,tx_in_count)
 
-            tx_out_count =   read_compactSize_uint(payload)
+            tx_out_count = read_compactSize_uint(payload)
             tx_out = self.get_txOut(payload,tx_out_count)
 
             lock_time = read_uint32(payload.read(4))
@@ -67,7 +67,7 @@ class DecodedBlock:
 
         for _ in range(tx_in_count):
 
-            #previous_output
+            # previous_output
             hash = read_32char(payload.read(32))
             index = read_uint32(payload.read(4))
 
@@ -103,8 +103,6 @@ class DecodedBlock:
             })
 
         return tx_out
-
-
 
 
     def get_decoded_info(self):
