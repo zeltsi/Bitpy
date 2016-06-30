@@ -1,6 +1,6 @@
 import random
 import time
-
+from io import BytesIO
 from Utils.config import version_number, latest_known_block
 from Utils.dataTypes import *
 
@@ -36,9 +36,9 @@ class EncodeVersion:
 
 class DecodedVersion:
     def __init__(self, payload):
-        self.version = read_uint32(payload.read(4))
+        self.version = read_int32(payload.read(4))
         self.services = read_uint64(payload.read(8))
-        self.timestamp = read_uint64(payload.read(8))
+        self.timestamp = read_int64(payload.read(8))
 
         self.addr_recv_services = read_uint64(payload.read(8))
         self.addr_recv_ip = parse_ip(payload.read(16))
@@ -50,7 +50,7 @@ class DecodedVersion:
 
         self.nonce = read_uint64(payload.read(8))
 
-        self.user_agent_bytes = int(bytes(payload.read(1)).encode("hex"))
+        self.user_agent_bytes = read_compactSize_uint(BytesIO(payload.read(1)))
         self.user_agent = read_char(payload.read(self.user_agent_bytes), self.user_agent_bytes)
 
         self.starting_height = read_int32(payload.read(4))
@@ -72,7 +72,7 @@ class DecodedVersion:
 
         display += "\nnonce                 :\t\t %s" % self.nonce
 
-        # display += "\nuser_agent_bytes  	:\t\t %s" % read_compactSize_uint(self.user_agent_bytes)
+        display += "\nuser_agent_bytes  	:\t\t %s" % self.user_agent_bytes
         display += "\nuser_agent            :\t\t %s" % self.user_agent
         display += "\nstarting_height	    :\t\t %s" % self.starting_height
         display += "\nrelay	                :\t\t %s" % self.relay
