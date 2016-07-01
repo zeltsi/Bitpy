@@ -10,7 +10,6 @@ class EncodeBlock:
         self.command_name = "block"
 
 
-
     def forge(self):
         # TODO
         return ""

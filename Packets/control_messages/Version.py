@@ -1,6 +1,5 @@
 import random
 import time
-from io import BytesIO
 from Utils.config import version_number, latest_known_block
 from Utils.dataTypes import *
 
@@ -50,7 +49,7 @@ class DecodedVersion:
 
         self.nonce = read_uint64(payload.read(8))
 
-        self.user_agent_bytes = read_compactSize_uint(BytesIO(payload.read(1)))
+        self.user_agent_bytes = read_compactSize_uint(payload)
         self.user_agent = read_char(payload.read(self.user_agent_bytes), self.user_agent_bytes)
 
         self.starting_height = read_int32(payload.read(4))
