@@ -1,6 +1,5 @@
 import random
 from Utils.dataTypes import *
-import mmh3
 import math
 
 
