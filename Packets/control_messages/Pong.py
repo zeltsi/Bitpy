@@ -12,9 +12,9 @@ class EncodePong:
 
 
 class DecodedPong:
-    def __init__(self, ping_received):
+    def __init__(self, pong_received):
         self.command_name = "pong"
-        self.nonce = read_uint64(ping_received.read(8))
+        self.nonce = read_uint64(pong_received.read(8))
 
     def get_decoded_info(self):
         return "\npong   :\t\t %s" % self.nonce

@@ -58,3 +58,25 @@ class Manager:
             packet = PacketCreator(getBlocks).forge_packet()
 
         self.senderQueue.put(packet)
+
+def send_version_msg():
+    version = Version.EncodeVersion()
+    packet = PacketCreator(version).forge_packet()
+
+def send_verack_msg():
+    verack = Verack.EncodeVerack()
+    packet = PacketCreator(verack).forge_packet()
+
+
+def send_getAddr_msg():
+    getAddr = GetAddr.EncodeGetaddr()
+    packet = PacketCreator(getAddr).forge_packet()
+
+
+def send_ping_msg():
+    ping = Ping.EncodePing()
+    packet = PacketCreator(ping).forge_packet()
+
+def send_getBlocks_msg():
+    getBlocks = GetBlocks.EncodeGetblocks(["0000000000000000046e09c981bfdb38799de1a80dc568470e7a768682b7b159"])
+    packet = PacketCreator(getBlocks).forge_packet()
