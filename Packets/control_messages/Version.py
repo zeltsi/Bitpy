@@ -33,7 +33,7 @@ class EncodeVersion:
                self.relay
 
 
-class DecodedVersion:
+class DecodeVersion:
     def __init__(self, payload):
         self.version = read_int32(payload.read(4))
         self.services = read_uint64(payload.read(8))

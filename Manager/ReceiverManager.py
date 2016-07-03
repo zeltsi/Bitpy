@@ -28,13 +28,13 @@ class ReceiverManager(Thread):
                     raise Exception("Node disconnected (received 0bit length message)")
 
                 headerStream = BytesIO(header)
-                headerParsed = HeaderParser(headerStream)
+                parsedHeader = HeaderParser(headerStream)
 
                 # get the payload
-                payload = self.recvall(headerParsed.payload_size)
+                payload = self.recvall(parsedHeader.payload_size)
                 payloadStream = BytesIO(payload)
 
-                self.manager(headerParsed, payloadStream)
+                self.manager(parsedHeader, payloadStream)
 
             except Exception as e:
                 print e
@@ -42,11 +42,11 @@ class ReceiverManager(Thread):
 
         print "Exit receiver Thread"
 
-    def manager(self, headerParsed, payloadStream):
+    def manager(self, parsedHeader, payloadStream):
 
-        self.log(headerParsed.to_string())
+        self.log(parsedHeader.to_string())
 
-        if headerParsed.command.startswith('ping'):
+        if parsedHeader.command.startswith('ping'):
             ping = Ping.DecodePing(payloadStream)
 
             pong = Pong.EncodePong(ping.nonce)
@@ -54,20 +54,20 @@ class ReceiverManager(Thread):
 
             self.senderQueue.put(packet.forge_packet())
 
-        elif headerParsed.command.startswith('inv'):
+        elif parsedHeader.command.startswith('inv'):
             inv = Inv.DecodeInv(payloadStream)
             self.log(inv.get_decoded_info())
 
-        elif headerParsed.command.startswith('addr'):
+        elif parsedHeader.command.startswith('addr'):
             addr = Addr.DecodeAddr(payloadStream)
             self.log(addr.get_decoded_info())
 
-        elif headerParsed.command.startswith('pong'):
-            pong = Pong.DecodedPong(payloadStream)
+        elif parsedHeader.command.startswith('pong'):
+            pong = Pong.DecodePong(payloadStream)
             self.log(pong.get_decoded_info())
 
-        elif headerParsed.command.startswith('version'):
-            version = Version.DecodedVersion(payloadStream)
+        elif parsedHeader.command.startswith('version'):
+            version = Version.DecodeVersion(payloadStream)
             self.log(version.get_decoded_info())
 
     def recvall(self, length):

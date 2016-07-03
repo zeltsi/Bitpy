@@ -11,7 +11,7 @@ class EncodePong:
         return self.nonce
 
 
-class DecodedPong:
+class DecodePong:
     def __init__(self, pong_received):
         self.command_name = "pong"
         self.nonce = read_uint64(pong_received.read(8))

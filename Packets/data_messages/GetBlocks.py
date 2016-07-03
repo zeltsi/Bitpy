@@ -13,8 +13,8 @@ class EncodeGetblocks:
 
         self.version = to_uint32(version_number)
         self.hash_count = to_compactSize_uint(length_hashes)
-        self.hashes = ''.join(to_32char(e) for e in hashes)
-        self.stop_hash = to_32char("0" * 32)
+        self.hashes = ''.join(to_32char(to_hexa(e)) for e in hashes)
+        self.stop_hash = to_32char(to_hexa("0" * 32))
 
     def forge(self):
         return self.version + self.hash_count + self.hashes + self.stop_hash

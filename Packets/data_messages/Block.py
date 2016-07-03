@@ -15,7 +15,7 @@ class EncodeBlock:
         return ""
 
 
-class DecodedBlock:
+class DecodeBlock:
     def __init__(self, payload):
 
         # Block header

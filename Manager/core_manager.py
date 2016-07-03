@@ -28,7 +28,7 @@ class Manager:
             print "3: Ping"
             print "4: GetBlocks (block hash already defined)"
 
-            cmd = int(input(">"))
+            cmd = input(">")
             self.order(cmd)
 
     def order(self, cmd):
@@ -54,7 +54,12 @@ class Manager:
             packet = PacketCreator(ping).forge_packet()
 
         elif cmd == 4:
-            getBlocks = GetBlocks.EncodeGetblocks(["0000000000000000046e09c981bfdb38799de1a80dc568470e7a768682b7b159"])
+            print "Enter your block Hash(es): (you can write as many blocks as you want, separated by a coma)"
+            print "i.e: 5c3e6403d40837110a2e8afb602b1c01714bda7ce23bea0a0000000000000000,951b7b286867a7e074865cd08a1ed99783bdfb189c90e6400000000000000000"
+            hashes = raw_input(">")
+            hashes = [ hash.strip() for hash in hashes.split(',') ]
+            print hashes
+            getBlocks = GetBlocks.EncodeGetblocks(hashes)
             packet = PacketCreator(getBlocks).forge_packet()
 
         self.senderQueue.put(packet)
