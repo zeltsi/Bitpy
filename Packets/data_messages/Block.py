@@ -9,7 +9,6 @@ class EncodeBlock:
     def __init__(self):
         self.command_name = "block"
 
-
     def forge(self):
         # TODO
         return ""
@@ -20,8 +19,8 @@ class DecodeBlock:
 
         # Block header
         self.version = read_uint32(payload.read(4))
-        self.previous_block_header_hash = read_32char(payload.read(32))
-        self.merkle_root_hash = read_32char(payload.read(32))
+        self.previous_block_header_hash = read_chars(payload.read(32))
+        self.merkle_root_hash = read_chars(payload.read(32))
         self.time = read_uint32(payload.read(4))
         self.bits = read_uint32(payload.read(4))
         self.nounce = read_uint32(payload.read(4))
@@ -67,11 +66,11 @@ class DecodeBlock:
         for _ in range(tx_in_count):
 
             # previous_output
-            hash = read_32char(payload.read(32))
+            hash = read_chars(payload.read(32))
             index = read_uint32(payload.read(4))
 
             script_bytes = read_compactSize_uint(payload)
-            signature_script = read_char(payload,script_bytes)
+            signature_script = read_chars(payload, script_bytes)
 
             sequence = read_uint32(payload.read(4))
 
@@ -93,7 +92,7 @@ class DecodeBlock:
 
             value = read_uint64(payload.read(8))
             pub_key_script_bytes = read_compactSize_uint(payload)
-            pk_script = read_char(payload, pub_key_script_bytes)
+            pk_script = read_chars(payload, pub_key_script_bytes)
 
             tx_out.append({
                 "value": value,

@@ -9,7 +9,7 @@ class HeaderParser:
         self.magic = read_hexa(block.read(4))
         self.command = block.read(12)
         self.payload_size = read_uint32(block.read(4))
-        self.checksum = hash_to_string(block.read(4))
+        self.checksum = read_hexa(block.read(4))
 
         self.header_size = 4 + 12 + 4 + 4
 

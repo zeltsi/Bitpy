@@ -16,7 +16,7 @@ def connect():
     try:
         sock.connect((HOST, PORT))
     except Exception as e:
-        print e
+        print(e)
         sys.exit(0)
 
     return sock

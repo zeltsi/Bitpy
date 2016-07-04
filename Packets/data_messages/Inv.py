@@ -20,7 +20,7 @@ class EncodeInv:
 
         for inv in inventories:
             encodeInventories += to_uint32(inv["type"])
-            encodeInventories += to_32char(inv["hash"])
+            encodeInventories += to_chars(inv["hash"])
 
         return encodeInventories
 

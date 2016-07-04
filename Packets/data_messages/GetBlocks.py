@@ -13,12 +13,11 @@ class EncodeGetblocks:
 
         self.version = to_uint32(version_number)
         self.hash_count = to_compactSize_uint(length_hashes)
-        self.hashes = ''.join(to_32char(to_hexa(e)) for e in hashes)
-        self.stop_hash = to_32char(to_hexa("0" * 32))
+        self.hashes = b''.join(to_chars(to_hexa(e)) for e in hashes)
+        self.stop_hash = to_chars(to_hexa("00" * 32))
 
     def forge(self):
         return self.version + self.hash_count + self.hashes + self.stop_hash
-
 
 
 class DecodeGetblocks:
@@ -27,15 +26,13 @@ class DecodeGetblocks:
         self.hash_count = read_compactSize_uint(payload)
         self.hashes = self.parse_hashes(payload)
 
-
     def parse_hashes(self,payload):
         hashes = []
 
         for _ in range(self.hash_count):
-            hashes.append(read_32char(payload.read(32)))
+            hashes.append(read_chars(payload.read(32)))
 
         return hashes
-
 
     def get_decoded_info(self):
         display = "\n-----GetBlocks-----"

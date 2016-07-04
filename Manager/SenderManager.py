@@ -15,4 +15,4 @@ class SenderManager(Thread):
                 order = self.queue.get()
                 self.sock.sendall(order)
 
-        print "Exit sender Thread"
+        print("Exit sender Thread")

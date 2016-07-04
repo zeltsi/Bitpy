@@ -1,6 +1,6 @@
 __author__ = "Shlomi Zeltsinger, Alexis Gallepe"
 
-import Queue
+import queue
 
 from Manager import ReceiverManager, SenderManager
 from Network import Connection
@@ -9,7 +9,7 @@ from Manager import core_manager
 
 def main():
     # Queue where we put every messages we want to send to our connected node
-    senderQueue = Queue.Queue()
+    senderQueue = queue.Queue()
 
     # Connexion to our node
     sock = Connection.connect()

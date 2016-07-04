@@ -37,16 +37,17 @@ class ReceiverManager(Thread):
                 self.manager(parsedHeader, payloadStream)
 
             except Exception as e:
-                print e
+                print(e)
                 break
 
-        print "Exit receiver Thread"
+        print("Exit receiver Thread")
 
     def manager(self, parsedHeader, payloadStream):
 
         self.log(parsedHeader.to_string())
+        command = parsedHeader.command.decode("utf-8")
 
-        if parsedHeader.command.startswith('ping'):
+        if command.startswith('ping'):
             ping = Ping.DecodePing(payloadStream)
 
             pong = Pong.EncodePong(ping.nonce)
@@ -54,19 +55,19 @@ class ReceiverManager(Thread):
 
             self.senderQueue.put(packet.forge_packet())
 
-        elif parsedHeader.command.startswith('inv'):
+        elif command.startswith('inv'):
             inv = Inv.DecodeInv(payloadStream)
             self.log(inv.get_decoded_info())
 
-        elif parsedHeader.command.startswith('addr'):
+        elif command.startswith('addr'):
             addr = Addr.DecodeAddr(payloadStream)
             self.log(addr.get_decoded_info())
 
-        elif parsedHeader.command.startswith('pong'):
+        elif command.startswith('pong'):
             pong = Pong.DecodePong(payloadStream)
             self.log(pong.get_decoded_info())
 
-        elif parsedHeader.command.startswith('version'):
+        elif command.startswith('version'):
             version = Version.DecodeVersion(payloadStream)
             self.log(version.get_decoded_info())
 

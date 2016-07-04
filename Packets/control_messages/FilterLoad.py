@@ -22,7 +22,7 @@ class DecodeFilterLoad:
     def __init__(self):
         pass
 
-
-bf = BloomFilter(1000,0.1)
-print bf.size
-print bf.hash_count
+if "__main__" == __name__:
+    bf = BloomFilter(1000,0.1)
+    print(bf.size)
+    print(bf.hash_count)

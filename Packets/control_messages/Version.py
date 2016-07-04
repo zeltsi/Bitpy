@@ -10,14 +10,14 @@ class EncodeVersion:
 
         self.version = to_int32(version_number)
         self.services = to_uint64(0)
-        self.timestamp = to_int64(time.time())
+        self.timestamp = to_int64(int(time.time()))
 
         self.addr_recv_services = to_uint64(0)
-        self.addr_recv_ip = to_big_endian_16char("127.0.0.1")
+        self.addr_recv_ip = to_big_endian_16char(b"127.0.0.1")
         self.addr_recv_port = to_big_endian_uint16(8333)
 
         self.addr_trans_services = to_uint64(0)
-        self.addr_trans_ip = to_big_endian_16char("127.0.0.1")
+        self.addr_trans_ip = to_big_endian_16char(b"127.0.0.1")
         self.addr_trans_port = to_big_endian_uint16(8333)
 
         self.nonce = to_uint64(random.getrandbits(64))
@@ -50,7 +50,7 @@ class DecodeVersion:
         self.nonce = read_uint64(payload.read(8))
 
         self.user_agent_bytes = read_compactSize_uint(payload)
-        self.user_agent = read_char(payload.read(self.user_agent_bytes), self.user_agent_bytes)
+        self.user_agent = read_chars(payload.read(self.user_agent_bytes), self.user_agent_bytes)
 
         self.starting_height = read_int32(payload.read(4))
         self.relay = read_bool(payload.read(1))
