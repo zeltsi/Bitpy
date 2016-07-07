@@ -5,13 +5,16 @@ from Packets.PacketCreator import *
 from Packets.control_messages import *
 from Packets.data_messages import *
 
+import Utils.globals
 from io import BytesIO
 from threading import Thread
+import time
+
 
 class ReceiverManager(Thread):
-    def __init__(self, sock, senderQueue):
+    def __init__(self, sock):
         Thread.__init__(self)
-        self.senderQueue = senderQueue
+        self.sendingQueue = Utils.globals.sendingQueue
         self.sock = sock
         self.ping = ""
 
@@ -42,34 +45,54 @@ class ReceiverManager(Thread):
 
         print("Exit receiver Thread")
 
+
     def manager(self, parsedHeader, payloadStream):
 
-        self.log(parsedHeader.to_string())
         command = parsedHeader.command.decode("utf-8")
+        message = {"timestamp": time.time(), "command": command, "header": parsedHeader.to_string(), "payload": ""}
+
 
         if command.startswith('ping'):
             ping = Ping.DecodePing(payloadStream)
 
             pong = Pong.EncodePong(ping.nonce)
             packet = PacketCreator(pong)
+            self.sendingQueue.put(packet.forge_packet())
 
-            self.senderQueue.put(packet.forge_packet())
+            message["payload"] = str(ping.nonce)
+            self.display(message)
 
         elif command.startswith('inv'):
             inv = Inv.DecodeInv(payloadStream)
-            self.log(inv.get_decoded_info())
+            message["payload"] = inv.get_decoded_info()
+            self.display(message)
 
         elif command.startswith('addr'):
             addr = Addr.DecodeAddr(payloadStream)
-            self.log(addr.get_decoded_info())
+            message["payload"] = addr.get_decoded_info()
+            self.display(message)
 
         elif command.startswith('pong'):
             pong = Pong.DecodePong(payloadStream)
-            self.log(pong.get_decoded_info())
+            message["payload"] = pong.get_decoded_info()
+            self.display(message)
 
         elif command.startswith('version'):
             version = Version.DecodeVersion(payloadStream)
-            self.log(version.get_decoded_info())
+            message["payload"] = version.get_decoded_info()
+            self.display(message)
+
+
+    def display(self, message):
+        Utils.globals.node_messages.append(message)
+
+        if Utils.globals.UI == "CLI" or Utils.globals.UI == "tkinter_gui":
+            self.outfile.write(message["payload"])
+            self.outfile.flush()
+
+        elif Utils.globals.UI == "pyQt5_gui":
+            Utils.globals.receivingQueue.put(message)
+
 
     def recvall(self, length):
         blocks = []
@@ -83,7 +106,3 @@ class ReceiverManager(Thread):
             blocks.append(block)
 
         return b''.join(blocks)
-
-    def log(self, messages):
-        self.outfile.write(messages)
-        self.outfile.flush()

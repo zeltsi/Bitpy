@@ -1,4 +1,4 @@
-__author__ = "Shlomi Zeltsinger, Alexis Gallepe"
+__author__ = "Shlomi Zeltsinger, Alexis Gallèpe"
 
 import queue
 
@@ -8,21 +8,19 @@ from Manager import core_manager
 
 
 def main():
-    # Queue where we put every messages we want to send to our connected node
-    senderQueue = queue.Queue()
 
     # Connexion to our node
     sock = Connection.connect()
 
     # Start receiver Thread that will loop for incoming node messages
-    receiver = ReceiverManager.ReceiverManager(sock, senderQueue)
+    receiver = ReceiverManager.ReceiverManager(sock)
     receiver.start()
 
     # Start Sender Thread that will loop for messages to send to node
-    sender = SenderManager.SenderManager(sock, senderQueue)
+    sender = SenderManager.SenderManager(sock)
     sender.start()
 
-    core_manager.Manager(senderQueue)
+    core_manager.Manager()
 
 
 if "__main__" == __name__:

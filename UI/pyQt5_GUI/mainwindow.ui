@@ -52,26 +52,6 @@
            <property name="autoFillBackground">
             <bool>false</bool>
            </property>
-           <item>
-            <property name="text">
-             <string>Version</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Verack</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Nouvel élément</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Nouvel élément</string>
-            </property>
-           </item>
           </widget>
          </item>
          <item>
@@ -80,17 +60,7 @@
             <bool>true</bool>
            </property>
            <property name="plainText">
-            <string> 24-------------HEADER-------------
-Magic:	 f9beb4d9
-Command name	:	 b'version\x00\x00\x00\x00\x00'
-Payload size	:	 102
-Checksum	:		 e05bd919
-header Size:		 24-------------HEADER-------------
-Magic:	 f9beb4d9
-Command name	:	 b'version\x00\x00\x00\x00\x00'
-Payload size	:	 102
-Checksum	:		 e05bd919
-header Size:		 24</string>
+            <string/>
            </property>
           </widget>
          </item>
@@ -113,7 +83,7 @@ header Size:		 24</string>
          <item row="1" column="0">
           <widget class="QPushButton" name="pushButton_3">
            <property name="text">
-            <string>PushButton</string>
+            <string>Ping</string>
            </property>
           </widget>
          </item>

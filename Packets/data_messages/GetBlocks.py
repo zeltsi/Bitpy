@@ -1,4 +1,4 @@
-from Utils.config import version_number
+from Utils.globals import version_number
 from Utils.dataTypes import *
 
 

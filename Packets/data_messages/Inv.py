@@ -1,5 +1,5 @@
 from Utils.dataTypes import *
-from Utils.config import *
+from Utils.globals import *
 
 
 class EncodeInv:

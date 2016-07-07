@@ -1,6 +1,6 @@
 import random
 import time
-from Utils.config import version_number, latest_known_block
+from Utils.globals import version_number, latest_known_block
 from Utils.dataTypes import *
 
 

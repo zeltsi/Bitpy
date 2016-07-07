@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'mainwindow.ui'
+# Form implementation generated from reading ui file 'UI/pyQt5_GUI/mainwindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.6
 #
@@ -33,17 +33,10 @@ class Ui_MainWindow(object):
         self.listWidget.setFont(font)
         self.listWidget.setAutoFillBackground(False)
         self.listWidget.setObjectName("listWidget")
-        item = QtWidgets.QListWidgetItem()
-        self.listWidget.addItem(item)
-        item = QtWidgets.QListWidgetItem()
-        self.listWidget.addItem(item)
-        item = QtWidgets.QListWidgetItem()
-        self.listWidget.addItem(item)
-        item = QtWidgets.QListWidgetItem()
-        self.listWidget.addItem(item)
         self.horizontalLayout.addWidget(self.listWidget)
         self.plainTextEdit = QtWidgets.QPlainTextEdit(self.verticalLayoutWidget)
         self.plainTextEdit.setEnabled(True)
+        self.plainTextEdit.setPlainText("")
         self.plainTextEdit.setObjectName("plainTextEdit")
         self.horizontalLayout.addWidget(self.plainTextEdit)
         self.verticalLayout.addLayout(self.horizontalLayout)
@@ -96,29 +89,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        __sortingEnabled = self.listWidget.isSortingEnabled()
-        self.listWidget.setSortingEnabled(False)
-        item = self.listWidget.item(0)
-        item.setText(_translate("MainWindow", "Version"))
-        item = self.listWidget.item(1)
-        item.setText(_translate("MainWindow", "Verack"))
-        item = self.listWidget.item(2)
-        item.setText(_translate("MainWindow", "Nouvel élément"))
-        item = self.listWidget.item(3)
-        item.setText(_translate("MainWindow", "Nouvel élément"))
-        self.listWidget.setSortingEnabled(__sortingEnabled)
-        self.plainTextEdit.setPlainText(_translate("MainWindow", " 24-------------HEADER-------------\n"
-"Magic:     f9beb4d9\n"
-"Command name    :     b\'version\\x00\\x00\\x00\\x00\\x00\'\n"
-"Payload size    :     102\n"
-"Checksum    :         e05bd919\n"
-"header Size:         24-------------HEADER-------------\n"
-"Magic:     f9beb4d9\n"
-"Command name    :     b\'version\\x00\\x00\\x00\\x00\\x00\'\n"
-"Payload size    :     102\n"
-"Checksum    :         e05bd919\n"
-"header Size:         24"))
-        self.pushButton_3.setText(_translate("MainWindow", "PushButton"))
+        self.pushButton_3.setText(_translate("MainWindow", "Ping"))
         self.pushButton_4.setText(_translate("MainWindow", "PushButton"))
         self.pushButton_5.setText(_translate("MainWindow", "PushButton"))
         self.pushButton_6.setText(_translate("MainWindow", "PushButton"))
@@ -128,3 +99,4 @@ class Ui_MainWindow(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), _translate("MainWindow", "Tab 2"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_5), _translate("MainWindow", "Page"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_6), _translate("MainWindow", "Page"))
+
