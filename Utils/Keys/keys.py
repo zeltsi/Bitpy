@@ -3,7 +3,7 @@ import ecdsa
 import hashlib
 import base58
 import binascii
-import codecs
+
 
 class key():
     def __init__(self, private_key=0):
@@ -23,7 +23,7 @@ class key():
         self.binary_addr = binascii.unhexlify(self.hashed_public_key + self.checksum)
         self.addr = base58.b58encode(self.binary_addr)
 
-nk = key("73356839c2883cdf723b44f329928d5acd51e0b3b9d88ea3e1639e34e1dc6958")
+nk = key()
 print (type(nk.private_key))
 print ((binascii.hexlify(nk.private_key).decode("ascii")))
 print (nk.x)
