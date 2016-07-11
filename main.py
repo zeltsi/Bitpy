@@ -9,7 +9,7 @@ from Manager import core_manager
 
 def main():
 
-    # Connexion to our node
+    # Connecion to our node
     sock = Connection.connect()
 
     # Start receiver Thread that will loop for incoming node messages

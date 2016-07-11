@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
@@ -131,6 +131,55 @@
      <attribute name="title">
       <string>Tab 2</string>
      </attribute>
+     <widget class="QPushButton" name="createAddressButton">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>70</y>
+        <width>117</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Create Bitcoin Address</string>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="KeysDisplay">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>130</y>
+        <width>751</width>
+        <height>231</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="privateKeyInsert">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>70</y>
+        <width>211</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>40</y>
+        <width>361</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Insert Private key or leave Empty to generate a random address and keys</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_5">
      <attribute name="title">

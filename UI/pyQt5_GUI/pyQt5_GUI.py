@@ -1,9 +1,10 @@
-import Utils.globals
+import Utils.globals, Utils.keyUtils.keys
 from threading import Thread
 from PyQt5 import QtCore, QtGui, QtWidgets
 from UI.pyQt5_GUI.mainwindow import Ui_MainWindow
 import sys
 from Manager import core_manager
+
 
 
 # To generate the gui python code form the .ui file, use this command:
@@ -74,6 +75,14 @@ class Ui_manager:
         # ...
 
 
+        #... keyUtils tab
+
+        self.ui.createAddressButton.toggle()
+        self.ui.createAddressButton.clicked.connect(lambda: self.onClick_createAddress())
+
+        # ...
+
+
     def onClick_listWidget(self, item):
         id = int(item.text().split('-')[0])
         self.ui.plainTextEdit.clear()
@@ -90,4 +99,20 @@ class Ui_manager:
     def onClick_ping(self):
         ping = core_manager.get_ping_pkt()
         self.sendingQueue.put(ping)
+
+
+    def onClick_createAddress(self):
+        self.ui.KeysDisplay.clear()
+        private_key = self.ui.privateKeyInsert.text()
+        if (len(private_key)<1):
+            print ("here")
+            nk = Utils.keyUtils.keys.Key()
+        else:
+            print ("there")
+            nk = Utils.keyUtils.keys.Key(private_key)
+        self.ui.KeysDisplay.setPlainText(str(
+              "Private key: " + nk.printable_pk) + "\n"
+             + "Public key: " + str(nk.public_key, "ascii") + "\n"
+             + "Hashes public key: " + str(nk.hashed_public_key, "ascii") + "\n"
+             + "Address: " + str(nk.addr))
 

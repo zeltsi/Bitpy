@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'UI/pyQt5_GUI/mainwindow.ui'
+# Form implementation generated from reading ui file 'mainwindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.6
 #
@@ -70,6 +70,19 @@ class Ui_MainWindow(object):
         self.tabWidget.addTab(self.tab_3, "")
         self.tab_4 = QtWidgets.QWidget()
         self.tab_4.setObjectName("tab_4")
+        self.createAddressButton = QtWidgets.QPushButton(self.tab_4)
+        self.createAddressButton.setGeometry(QtCore.QRect(20, 70, 117, 23))
+        self.createAddressButton.setObjectName("createAddressButton")
+        self.KeysDisplay = QtWidgets.QTextBrowser(self.tab_4)
+        self.KeysDisplay.setGeometry(QtCore.QRect(10, 130, 751, 231))
+        self.KeysDisplay.setObjectName("KeysDisplay")
+        self.privateKeyInsert = QtWidgets.QLineEdit(self.tab_4)
+        self.privateKeyInsert.setGeometry(QtCore.QRect(170, 70, 211, 20))
+        self.privateKeyInsert.setText("")
+        self.privateKeyInsert.setObjectName("privateKeyInsert")
+        self.label = QtWidgets.QLabel(self.tab_4)
+        self.label.setGeometry(QtCore.QRect(20, 40, 361, 20))
+        self.label.setObjectName("label")
         self.tabWidget.addTab(self.tab_4, "")
         self.tab_5 = QtWidgets.QWidget()
         self.tab_5.setObjectName("tab_5")
@@ -83,7 +96,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -96,6 +109,8 @@ class Ui_MainWindow(object):
         self.pushButton.setText(_translate("MainWindow", "Version"))
         self.pushButton_2.setText(_translate("MainWindow", "Verack"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "Tab 1"))
+        self.createAddressButton.setText(_translate("MainWindow", "Create Bitcoin Address"))
+        self.label.setText(_translate("MainWindow", "Insert Private key or leave Empty to generate a random address and keys"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), _translate("MainWindow", "Tab 2"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_5), _translate("MainWindow", "Page"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_6), _translate("MainWindow", "Page"))
