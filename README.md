@@ -12,5 +12,6 @@ In order to run this code you might need to install the following packages:
 - pyqt
 - ecdsa
 - base58
+- netaddr
 
 This code was created by Shlomi Zeltsinger and Alexis gallepe. you can read more about our working process at http://zeltsinger.com
