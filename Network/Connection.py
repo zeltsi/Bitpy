@@ -1,7 +1,7 @@
 import socket
 import sys
 
-HOST = "66.90.137.89"
+HOST = "216.218.235.90"
 PORT = 8333
 
 """

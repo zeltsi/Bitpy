@@ -5,6 +5,7 @@ from Packets.PacketCreator import *
 from Packets.control_messages import *
 from Packets.data_messages import *
 
+
 import Utils.globals
 from io import BytesIO
 from threading import Thread
@@ -55,9 +56,9 @@ class ReceiverManager(Thread):
         if command.startswith('ping'):
             ping = Ping.DecodePing(payloadStream)
 
-            pong = Pong.EncodePong(ping.nonce)
-            packet = PacketCreator(pong)
-            self.sendingQueue.put(packet.forge_packet())
+            # pong = Pong.EncodePong(ping.nonce)
+            # packet = PacketCreator(pong)
+            # self.sendingQueue.put(packet.forge_packet())
 
             message["payload"] = str(ping.nonce)
             self.display(message)
@@ -82,6 +83,12 @@ class ReceiverManager(Thread):
             message["payload"] = version.get_decoded_info()
             self.display(message)
 
+        elif command.startswith('verack'):
+            verack = Verack.DecodeVerack(payloadStream)
+            message["payload"] = verack.get_decoded_info()
+            self.display(message)
+
+
 
     def display(self, message):
         Utils.globals.node_messages.append(message)
@@ -91,18 +98,18 @@ class ReceiverManager(Thread):
             self.outfile.flush()
 
         elif Utils.globals.UI == "pyQt5_gui":
-            Utils.globals.receivingQueue.put(message)
+            Utils.globals.messages.put(message)
 
 
     def recvall(self, length):
-        blocks = []
+        parts = []
 
         while length > 0:
-            block = self.sock.recv(length)
-            if not block:
-                raise EOFError('socket closed with %d bytes left in this block'.format(length))
+            part = self.sock.recv(length)
+            if not part:
+                raise EOFError('socket closed with %d bytes left in this part'.format(length))
 
-            length -= len(block)
-            blocks.append(block)
+            length -= len(part)
+            parts.append(part)
 
-        return b''.join(blocks)
+        return b''.join(parts)

@@ -4,11 +4,11 @@ from Utils.dataTypes import *
 class EncodePong:
     def __init__(self, ping_received):
         self.command_name = "pong"
-
-        self.nonce = ping_received
+        self.nonce = to_uint64(ping_received)
 
     def forge(self):
         return self.nonce
+
 
 
 class DecodePong:

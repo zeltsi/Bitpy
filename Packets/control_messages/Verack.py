@@ -10,4 +10,7 @@ class EncodeVerack:
 # No need this class because, like GetAddr, there is no payload
 class DecodeVerack:
     def __init__(self, payload=""):
-        pass
+        self.payload = "Empty message"
+
+    def get_decoded_info(self):
+        return "Empty message"

@@ -18,8 +18,7 @@ class Key(object):
 
         self.sk = ecdsa.SigningKey.from_string(self.private_key, curve = ecdsa.SECP256k1)
         self.vk = self.sk.verifying_key
-        self.x = b"04" + binascii.hexlify(self.vk.to_string())
-        self.public_key = self.x
+        self.public_key =  b"04" + binascii.hexlify(self.vk.to_string())
         ripemd160 = hashlib.new('ripemd160')
         ripemd160.update(hashlib.sha256(binascii.unhexlify(self.public_key)).digest())
         self.hashed_public_key = b"00" + binascii.hexlify(ripemd160.digest())
@@ -49,7 +48,7 @@ def generate_public_key(vk):
 def generate_hashed_public_key(public_key):
     ripemd160 = hashlib.new('ripemd160')
     ripemd160.update(hashlib.sha256(binascii.unhexlify(public_key)).digest())
-    return b"00" + binascii.hexlify(ripemd160.digest())
+    return binascii.hexlify(ripemd160.digest())
 
 def generate_checksum(hashed_public_key):
     return binascii.hexlify(hashlib.sha256(hashlib.sha256(binascii.unhexlify(hashed_public_key)).digest()).digest()[:4])
@@ -63,3 +62,4 @@ def generate_address(private_key):
     binary_address = binascii.unhexlify(hashed_public_key + checksum)
     addr = base58.b58encode(binary_address)
     return addr
+

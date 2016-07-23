@@ -19,9 +19,13 @@ def get_getAddr_pkt():
     getAddr = GetAddr.EncodeGetaddr()
     return PacketCreator(getAddr).forge_packet()
 
-def get_ping_pkt():
-    ping = Ping.EncodePing()
+def get_ping_pkt(nonce=0):
+    ping = Ping.EncodePing(nonce)
     return PacketCreator(ping).forge_packet()
+
+def get_pong_pkt(nonce=0):
+    pong = Pong.EncodePong(nonce)
+    return PacketCreator(pong).forge_packet()
 
 def get_getBlocks_pkt(hashes=["5c3e6403d40837110a2e8afb602b1c01714bda7ce23bea0a0000000000000000"]):
     getBlocks = GetBlocks.EncodeGetblocks(hashes)

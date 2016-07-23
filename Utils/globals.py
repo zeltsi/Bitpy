@@ -21,6 +21,7 @@ sendingQueue = queue.Queue()
 # We put there, every receiving messages from a bitcoin node
 receivingQueue = queue.Queue()
 
+messages = queue.Queue()
 
 # Global structure of all messages received by bitcoin nodes
 node_messages = [] # should only contains: [ {"timestamp":"", "command":"", "payload":""}, ... ]

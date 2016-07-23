@@ -33,6 +33,30 @@ class EncodeVersion:
                self.relay
 
 
+    def get_decoded_info(self):
+        display = "\n-----Version-----"
+        display += "\nversion                :\t\t %s" % self.version
+        display += "\nservices  	         :\t\t %s" % self.services
+        display += "\ntimestamp              :\t\t %s" % self.timestamp
+
+        display += "\naddr_recv_services	 :\t\t %s" % self.addr_recv_services
+        display += "\naddr_recv_ip           :\t\t %s" % self.addr_recv_ip
+        display += "\naddr_recv_port         :\t\t %s" % self.addr_recv_port
+
+        display += "\naddr_trans_services  	:\t\t %s" % self.addr_trans_services
+        display += "\naddr_trans_ip         :\t\t %s" % self.addr_trans_ip
+        display += "\naddr_trans_port	    :\t\t %s" % self.addr_trans_port
+
+        display += "\nnonce                 :\t\t %s" % self.nonce
+
+        display += "\nuser_agent_bytes  	:\t\t %s" % self.user_agent_bytes
+        #display += "\nuser_agent            :\t\t %s" % self.user_agent
+        display += "\nstarting_height	    :\t\t %s" % self.starting_height
+        display += "\nrelay	                :\t\t %s" % self.relay
+
+        return display
+
+
 class DecodeVersion:
     def __init__(self, payload):
         self.version = read_int32(payload.read(4))

@@ -4,12 +4,12 @@ from Utils.dataTypes import *
 
 
 class HeaderParser:
-    def __init__(self, block):  # Packets is a stream
+    def __init__(self, header):  # Packets is a stream
 
-        self.magic = read_hexa(block.read(4))
-        self.command = block.read(12)
-        self.payload_size = read_uint32(block.read(4))
-        self.checksum = read_hexa(block.read(4))
+        self.magic = read_hexa(header.read(4))
+        self.command = header.read(12)
+        self.payload_size = read_uint32(header.read(4))
+        self.checksum = read_hexa(header.read(4))
 
         self.header_size = 4 + 12 + 4 + 4
 
