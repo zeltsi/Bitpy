@@ -48,7 +48,15 @@ def generate_public_key(vk):
 def generate_hashed_public_key(public_key):
     ripemd160 = hashlib.new('ripemd160')
     ripemd160.update(hashlib.sha256(binascii.unhexlify(public_key)).digest())
-    return binascii.hexlify(ripemd160.digest())
+    return ripemd160.digest()
+
+
+def generate_hashed_public_key_string(public_key):
+    ripemd160 = hashlib.new('ripemd160')
+    ripemd160.update(hashlib.sha256(binascii.unhexlify(public_key)).digest())
+    return binascii.hexlify(ripemd160.digest()).decode('ascii')
+    #return ripemd160.digest()
+
 
 def generate_checksum(hashed_public_key):
     return binascii.hexlify(hashlib.sha256(hashlib.sha256(binascii.unhexlify(hashed_public_key)).digest()).digest()[:4])

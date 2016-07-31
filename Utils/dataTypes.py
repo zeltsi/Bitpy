@@ -1,5 +1,4 @@
 import struct
-from netaddr import *
 
 # 16
 def to_big_endian_16char(v):

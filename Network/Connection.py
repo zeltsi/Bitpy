@@ -1,8 +1,7 @@
 import socket
 import sys
-
-HOST = "216.218.235.90"
-PORT = 8333
+import Utils.globals
+from Manager import ReceiverManager, SenderManager
 
 """
     We will use this file to connect to one node
@@ -14,9 +13,20 @@ def connect():
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     try:
-        sock.connect((HOST, PORT))
+        sock.connect((Utils.globals.HOST, Utils.globals.PORT))
+
+    # Start receiver Thread that will loop for incoming node messages
+        receiver = ReceiverManager.ReceiverManager(sock)
+        receiver.start()
+
+        # Start Sender Thread that will loop for messages to send to node
+        sender = SenderManager.SenderManager(sock)
+        sender.start()
+
     except Exception as e:
         print(e)
         sys.exit(0)
 
     return sock
+
+

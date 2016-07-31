@@ -1,6 +1,5 @@
 __author__ = 'alexisgallepe'
 
-from Packets.HeaderParser import HeaderParser
 from Packets.PacketCreator import *
 from Packets.control_messages import *
 from Packets.data_messages import *

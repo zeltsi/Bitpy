@@ -7,8 +7,8 @@ from Packets.data_messages import *
 
 __author__ = 'alexisgallepe'
 
-def get_version_pkt():
-    version = Version.EncodeVersion()
+def get_version_pkt(agent):
+    version = Version.EncodeVersion(agent)
     return PacketCreator(version).forge_packet()
 
 def get_verack_pkt():
@@ -36,27 +36,36 @@ class Manager(object):
     def __init__(self):
         self.sendingQueue = Utils.globals.sendingQueue
 
-        print("-- BitPy --")
-        print("Choose your UI:")
-        print("0: CLI")
-        print("1: Tkinter")
-        print("2: pyQt 5 (pyQt5 library required)")
+        from UI.pyQt5_GUI.pyQt5_GUI import Ui_manager
+        Utils.globals.UI = "pyQt5_gui"
+        ui = Ui_manager()
 
-        ui = int(input(">"))
-
-        if ui == 0:
-            from UI.CLI.CLI import CLI
-            Utils.globals.UI = "CLI"
-            CLI()
-
-        elif ui == 1:
-            from UI.tkinter_GUI.tkinter_GUI import start_GUI
-            Utils.globals.UI = "tkinter_gui"
-            start_GUI()
-
-        elif ui == 2:
-            from UI.pyQt5_GUI.pyQt5_GUI import Ui_manager
-            Utils.globals.UI = "pyQt5_gui"
-            ui = Ui_manager()
+#
+# class Manager(object):
+#     def __init__(self):
+#         self.sendingQueue = Utils.globals.sendingQueue
+#
+#         print("-- BitPy --")
+#         print("Choose your UI:")
+#         print("0: CLI")
+#         print("1: Tkinter")
+#         print("2: pyQt 5 (pyQt5 library required)")
+#
+#         ui = int(input(">"))
+#
+#         if ui == 0:
+#             from UI.CLI.CLI import CLI
+#             Utils.globals.UI = "CLI"
+#             CLI()
+#
+#         elif ui == 1:
+#             from UI.tkinter_GUI.tkinter_GUI import start_GUI
+#             Utils.globals.UI = "tkinter_gui"
+#             start_GUI()
+#
+#         elif ui == 2:
+#             from UI.pyQt5_GUI.pyQt5_GUI import Ui_manager
+#             Utils.globals.UI = "pyQt5_gui"
+#             ui = Ui_manager()
 
 

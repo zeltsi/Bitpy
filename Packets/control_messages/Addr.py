@@ -7,7 +7,7 @@ class EncodeAddr:
 
         length_nodes = len(nodes)
         assert length_nodes > 0
-        
+
         self.number_nodes = to_compactSize_uint(length_nodes)
         self.nodes = self.encode_nodes(nodes)
 

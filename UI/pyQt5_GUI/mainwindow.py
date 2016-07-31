@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainwindow.ui'
 #
-# Created by: PyQt5 UI code generator 5.6
+# Created by: PyQt5 UI code generator 5.7
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -57,9 +57,9 @@ class Ui_MainWindow(object):
         self.pushButton_5 = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
         self.pushButton_5.setObjectName("pushButton_5")
         self.gridLayout.addWidget(self.pushButton_5, 2, 0, 1, 1)
-        self.pushButton_6 = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
-        self.pushButton_6.setObjectName("pushButton_6")
-        self.gridLayout.addWidget(self.pushButton_6, 2, 1, 1, 1)
+        self.connectBtn = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
+        self.connectBtn.setObjectName("connectBtn")
+        self.gridLayout.addWidget(self.connectBtn, 2, 1, 1, 1)
         self.pushButton = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
         self.pushButton.setObjectName("pushButton")
         self.gridLayout.addWidget(self.pushButton, 0, 0, 1, 1)
@@ -116,9 +116,9 @@ class Ui_MainWindow(object):
         self.gridLayout_5 = QtWidgets.QGridLayout(self.gridLayoutWidget_3)
         self.gridLayout_5.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_5.setObjectName("gridLayout_5")
-        self.pushButton_23 = QtWidgets.QPushButton(self.gridLayoutWidget_3)
-        self.pushButton_23.setObjectName("pushButton_23")
-        self.gridLayout_5.addWidget(self.pushButton_23, 0, 0, 1, 1)
+        self.OP_RETURN = QtWidgets.QPushButton(self.gridLayoutWidget_3)
+        self.OP_RETURN.setObjectName("OP_RETURN")
+        self.gridLayout_5.addWidget(self.OP_RETURN, 0, 0, 1, 1)
         self.pushButton_24 = QtWidgets.QPushButton(self.gridLayoutWidget_3)
         self.pushButton_24.setObjectName("pushButton_24")
         self.gridLayout_5.addWidget(self.pushButton_24, 3, 0, 1, 1)
@@ -134,9 +134,9 @@ class Ui_MainWindow(object):
         self.scriptLine = QtWidgets.QTextBrowser(self.tab_5)
         self.scriptLine.setGeometry(QtCore.QRect(70, 250, 791, 31))
         self.scriptLine.setObjectName("scriptLine")
-        self.pushButton_7 = QtWidgets.QPushButton(self.tab_5)
-        self.pushButton_7.setGeometry(QtCore.QRect(650, 30, 211, 161))
-        self.pushButton_7.setObjectName("pushButton_7")
+        self.clearBtn = QtWidgets.QPushButton(self.tab_5)
+        self.clearBtn.setGeometry(QtCore.QRect(650, 30, 211, 161))
+        self.clearBtn.setObjectName("clearBtn")
         self.tabWidget.addTab(self.tab_5, "")
         self.tab_6 = QtWidgets.QWidget()
         self.tab_6.setObjectName("tab_6")
@@ -147,7 +147,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(2)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -156,7 +156,7 @@ class Ui_MainWindow(object):
         self.pushButton_3.setText(_translate("MainWindow", "Pong"))
         self.pushButton_4.setText(_translate("MainWindow", "Ping"))
         self.pushButton_5.setText(_translate("MainWindow", "PushButton"))
-        self.pushButton_6.setText(_translate("MainWindow", "PushButton"))
+        self.connectBtn.setText(_translate("MainWindow", "Conncect"))
         self.pushButton.setText(_translate("MainWindow", "Version"))
         self.pushButton_2.setText(_translate("MainWindow", "Verack"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "Messages"))
@@ -168,12 +168,12 @@ class Ui_MainWindow(object):
         self.OP_DUP.setText(_translate("MainWindow", "OP_DUP"))
         self.OP_HASH160.setText(_translate("MainWindow", "OP_HASH160"))
         self.OP_VERIFY.setText(_translate("MainWindow", "OP_VERIFY"))
-        self.pushButton_23.setText(_translate("MainWindow", "soon"))
+        self.OP_RETURN.setText(_translate("MainWindow", "OP_RETURN    "))
         self.pushButton_24.setText(_translate("MainWindow", "soon"))
         self.pushButton_25.setText(_translate("MainWindow", "soon"))
         self.pushButton_26.setText(_translate("MainWindow", "soon"))
         self.pushButton_27.setText(_translate("MainWindow", "soon"))
-        self.pushButton_7.setText(_translate("MainWindow", "Clear"))
+        self.clearBtn.setText(_translate("MainWindow", "Clear"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_5), _translate("MainWindow", "Scripts"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_6), _translate("MainWindow", "Page"))
 

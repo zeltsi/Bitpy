@@ -6,6 +6,10 @@ magic_number = to_hexa("F9BEB4D9")  # The Main network magic number
 version_number = 70012
 latest_known_block = 416419  # june 2016
 
+# Connection variables - defaults
+HOST = "78.47.233.120"
+PORT = 8333
+
 
 type_id = { 1:"MSG_TX",
             2:"MSG_BLOCK",

@@ -5,7 +5,7 @@ from Utils.dataTypes import *
 
 
 class EncodeVersion:
-    def __init__(self):
+    def __init__(self, agent):
         self.command_name = "version"
 
         self.version = to_int32(version_number)
@@ -21,7 +21,8 @@ class EncodeVersion:
         self.addr_trans_port = to_big_endian_uint16(8333)
 
         self.nonce = to_uint64(random.getrandbits(64))
-        self.user_agent_bytes = to_uchar(0)
+        self.user_agent_bytes = to_compactSize_uint(len(agent))
+        self.user_agent = to_chars(str.encode(agent))
         self.starting_height = to_int32(latest_known_block)
         self.relay = to_bool(False)
 
@@ -29,7 +30,7 @@ class EncodeVersion:
         return self.version + self.services + self.timestamp + \
                self.addr_recv_services + self.addr_recv_ip + self.addr_recv_port + \
                self.addr_trans_services + self.addr_trans_ip + self.addr_trans_port + \
-               self.nonce + self.user_agent_bytes + self.starting_height + \
+               self.nonce + self.user_agent_bytes + self.user_agent + self.starting_height + \
                self.relay
 
 
@@ -50,7 +51,7 @@ class EncodeVersion:
         display += "\nnonce                 :\t\t %s" % self.nonce
 
         display += "\nuser_agent_bytes  	:\t\t %s" % self.user_agent_bytes
-        #display += "\nuser_agent            :\t\t %s" % self.user_agent
+        display += "\nuser_agent            :\t\t %s" % self.user_agent
         display += "\nstarting_height	    :\t\t %s" % self.starting_height
         display += "\nrelay	                :\t\t %s" % self.relay
 
