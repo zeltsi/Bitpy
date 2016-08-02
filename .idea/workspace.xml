@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/Utils/keyUtils/keys.py" line="17" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="e56cedc8-e32f-443a-a77f-8586e1c90004" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shu.spec" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UI/pyQt5_GUI/mainwindow.ui" afterPath="$PROJECT_DIR$/UI/pyQt5_GUI/mainwindow.ui" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/ReceiverManager.py" afterPath="$PROJECT_DIR$/Manager/ReceiverManager.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/SenderManager.py" afterPath="$PROJECT_DIR$/Manager/SenderManager.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Manager/core_manager.py" afterPath="$PROJECT_DIR$/Manager/core_manager.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Packets/Decoder.py" afterPath="$PROJECT_DIR$/Packets/Decoder.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Packets/HeaderParser.py" afterPath="$PROJECT_DIR$/Packets/HeaderParser.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Packets/PacketCreator.py" afterPath="$PROJECT_DIR$/Packets/PacketCreator.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Packets/__init__.py" afterPath="$PROJECT_DIR$/Packets/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Packets/control_messages/__init__.py" afterPath="$PROJECT_DIR$/Packets/control_messages/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Packets/data_messages/__init__.py" afterPath="$PROJECT_DIR$/Packets/data_messages/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UI/pyQt5_GUI/mainwindow.py" afterPath="$PROJECT_DIR$/UI/pyQt5_GUI/mainwindow.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Packets/control_messages/Version.py" afterPath="$PROJECT_DIR$/Packets/control_messages/Version.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UI/pyQt5_GUI/pyQt5_GUI.py" afterPath="$PROJECT_DIR$/UI/pyQt5_GUI/pyQt5_GUI.py" />
     </list>
     <ignored path="Bitpy.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,11 +42,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PacketCreator.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Packets/PacketCreator.py">
+      <file leaf-file-name="Version.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Packets/control_messages/Version.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state relative-caret-position="204">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SenderManager.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Manager/SenderManager.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
               <folding>
                 <element signature="e#52#72#0" expanded="true" />
               </folding>
@@ -57,13 +66,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Decoder.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Packets/Decoder.py">
+      <file leaf-file-name="core_manager.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Manager/core_manager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+            <state relative-caret-position="221">
+              <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
               <folding>
-                <element signature="e#0#45#0" expanded="true" />
+                <element signature="e#52#72#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,11 +90,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HeaderParser.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Packets/HeaderParser.py">
+      <file leaf-file-name="ReceiverManager.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Manager/ReceiverManager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state relative-caret-position="1445">
+              <caret line="85" column="21" selection-start-line="85" selection-start-column="21" selection-end-line="85" selection-end-column="21" />
+              <folding>
+                <element signature="e#52#87#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Decoder.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Packets/Decoder.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#45#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dataTypes.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Utils/dataTypes.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -94,22 +127,10 @@
       <file leaf-file-name="pyQt5_GUI.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UI/pyQt5_GUI/pyQt5_GUI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8075">
-              <caret line="475" column="12" selection-start-line="475" selection-start-column="12" selection-end-line="475" selection-end-column="12" />
+            <state relative-caret-position="283">
+              <caret line="242" column="57" selection-start-line="242" selection-start-column="57" selection-end-line="242" selection-end-column="57" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Connection.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Network/Connection.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="6" column="48" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="48" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -141,7 +162,6 @@
         <option value="$PROJECT_DIR$/Packets/control_messages/Pong.py" />
         <option value="$PROJECT_DIR$/Packets/control_messages/Verack.py" />
         <option value="$PROJECT_DIR$/UI/pyQt5_GUI/mainwindow.py" />
-        <option value="$PROJECT_DIR$/Packets/control_messages/Version.py" />
         <option value="$PROJECT_DIR$/Utils/dataTypes.py" />
         <option value="$PROJECT_DIR$/bitpyDemo.spec" />
         <option value="$PROJECT_DIR$/data_received_from_node.txt" />
@@ -152,17 +172,18 @@
         <option value="$PROJECT_DIR$/Utils/globals.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/Network/Connection.py" />
-        <option value="$PROJECT_DIR$/UI/pyQt5_GUI/pyQt5_GUI.py" />
         <option value="$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/PyInstaller/hooks/hook-PyQt5.QtSvg.py" />
         <option value="$PROJECT_DIR$/Packets/control_messages/Addr.py" />
         <option value="$PROJECT_DIR$/Packets/__init__.py" />
         <option value="$PROJECT_DIR$/Packets/control_messages/__init__.py" />
         <option value="$PROJECT_DIR$/Packets/data_messages/__init__.py" />
-        <option value="$PROJECT_DIR$/Manager/core_manager.py" />
-        <option value="$PROJECT_DIR$/Manager/ReceiverManager.py" />
         <option value="$PROJECT_DIR$/Manager/SenderManager.py" />
         <option value="$PROJECT_DIR$/Packets/HeaderParser.py" />
+        <option value="$PROJECT_DIR$/UI/pyQt5_GUI/pyQt5_GUI.py" />
+        <option value="$PROJECT_DIR$/Packets/control_messages/Version.py" />
         <option value="$PROJECT_DIR$/Packets/PacketCreator.py" />
+        <option value="$PROJECT_DIR$/Manager/core_manager.py" />
+        <option value="$PROJECT_DIR$/Manager/ReceiverManager.py" />
         <option value="$PROJECT_DIR$/Packets/Decoder.py" />
       </list>
     </option>
@@ -199,7 +220,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -207,32 +227,6 @@
               <option name="myItemId" value="Bitpy" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; Python 3.5.2 (C:\Users\shult\AppData\Local\Programs\Python\Python35\python.exe) &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bitpy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; Python 3.5.2 (C:\Users\shult\AppData\Local\Programs\Python\Python35\python.exe) &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -268,11 +262,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Utils" />
+              <option name="myItemId" value="UI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Bitpy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Bitpy" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="keyUtils" />
+              <option name="myItemId" value="UI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pyQt5_GUI" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -300,26 +308,17 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Network" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bitpy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bitpy" />
+              <option name="myItemId" value="Packets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Manager" />
+              <option name="myItemId" value="control_messages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -589,14 +588,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26281112" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937685" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34718102" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34718102" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33382788" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -635,12 +634,9 @@
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/Utils/keyUtils/keys.py</url>
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/UI/pyQt5_GUI/pyQt5_GUI.py</url>
-          <option name="timeStamp" value="52" />
+          <line>240</line>
+          <option name="timeStamp" value="53" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -653,18 +649,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="53" />
+      <option name="time" value="54" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Network/Connection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Manager/core_manager.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -734,13 +723,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Packets/control_messages/Version.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="24" column="53" selection-start-line="24" selection-start-column="53" selection-end-line="24" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -850,7 +832,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -858,7 +839,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-148">
           <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -866,7 +846,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="28" selection-start-line="0" selection-start-column="28" selection-end-line="0" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -874,17 +853,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Utils/keyUtils/keys.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -892,37 +860,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Manager/core_manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="48" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="e#52#72#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Manager/ReceiverManager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="50" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="e#52#87#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UI/pyQt5_GUI/pyQt5_GUI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8075">
-          <caret line="475" column="12" selection-start-line="475" selection-start-column="12" selection-end-line="475" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -938,25 +875,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Manager/SenderManager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="35" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="e#52#72#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -970,20 +888,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Network/Connection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="102">
           <caret line="6" column="48" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="48" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Packets/PacketCreator.py">
+    <entry file="file://$PROJECT_DIR$/Packets/HeaderParser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utils/keyUtils/keys.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <element signature="e#52#72#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -992,6 +918,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/pyQt5_GUI/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1006,18 +940,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Packets/HeaderParser.py">
+    <entry file="file://$PROJECT_DIR$/Packets/control_messages/Version.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state relative-caret-position="204">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/pyQt5_GUI/pyQt5_GUI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="242" column="57" selection-start-line="242" selection-start-column="57" selection-end-line="242" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/SenderManager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+          <folding>
+            <element signature="e#52#72#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/ReceiverManager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1445">
+          <caret line="85" column="21" selection-start-line="85" selection-start-column="21" selection-end-line="85" selection-end-column="21" />
+          <folding>
+            <element signature="e#52#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Packets/PacketCreator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Manager/core_manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+          <folding>
+            <element signature="e#52#72#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Packets/Decoder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+        <state relative-caret-position="68">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
           </folding>

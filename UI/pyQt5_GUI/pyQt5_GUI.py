@@ -239,6 +239,7 @@ class versionMsgDialog(QtWidgets.QDialog):
     def sendVersionMsg_clicked(self):
         try:
             agent = str(self.agentInput.text())
+            print (agent)
             version = core_manager.get_version_pkt(agent)
             self.sendingQueue.put(version)
         except:

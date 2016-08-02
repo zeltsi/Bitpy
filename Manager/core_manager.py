@@ -2,32 +2,32 @@ __author__ = 'alexisgallepe and Shlomi Zeltsinger'
 
 import Utils.globals
 from Packets.PacketCreator import *
-import Packets.control_messages
-import Packets.data_messages
+from Packets.control_messages import Verack, Version, GetAddr, Ping, Pong, Addr
+from  Packets.data_messages import GetBlocks, Inv
 
 
 def get_version_pkt(agent):
-    version = Packets.control_messages.Version.EncodeVersion(agent)
+    version = Version.EncodeVersion(agent)
     return PacketCreator(version).forge_packet()
 
 def get_verack_pkt():
-    verack = Packets.control_messages.Verack.EncodeVerack()
+    verack = Verack.EncodeVerack()
     return PacketCreator(verack).forge_packet()
 
 def get_getAddr_pkt():
-    getAddr = Packets.control_messages.GetAddr.EncodeGetaddr()
+    getAddr = GetAddr.EncodeGetaddr()
     return PacketCreator(getAddr).forge_packet()
 
 def get_ping_pkt(nonce=0):
-    ping = Packets.control_messages.Ping.EncodePing(nonce)
+    ping = Ping.EncodePing(nonce)
     return PacketCreator(ping).forge_packet()
 
 def get_pong_pkt(nonce=0):
-    pong = Packets.control_messages.Pong.EncodePong(nonce)
+    pong = Pong.EncodePong(nonce)
     return PacketCreator(pong).forge_packet()
 
 def get_getBlocks_pkt(hashes=["5c3e6403d40837110a2e8afb602b1c01714bda7ce23bea0a0000000000000000"]):
-    getBlocks = Packets.control_messages.GetBlocks.EncodeGetblocks(hashes)
+    getBlocks = GetBlocks.EncodeGetblocks(hashes)
     return PacketCreator(getBlocks).forge_packet()
 
 

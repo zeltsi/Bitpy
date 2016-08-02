@@ -5,8 +5,8 @@ import hashlib
 from Utils.globals import *
 import time
 from Packets.HeaderParser import HeaderParser
-import Packets.control_messages
-import Packets.data_messages
+from Packets.control_messages import Verack, Version, GetAddr, Ping, Pong, Addr
+from  Packets.data_messages import GetBlocks, Inv
 from io import BytesIO
 
 class PacketCreator:
@@ -59,38 +59,40 @@ class PacketCreator:
         message = {"timestamp": time.time(), "command": "Output - " + command, "header": parsedHeader.to_string(), "payload": ""}
 
         if command.startswith('ping'):
-            ping = Packets.control_messages.Ping.DecodePing(payloadStream)
+            ping = Ping.DecodePing(payloadStream)
             message["payload"] = str(ping.nonce)
             self.display(message)
 
         elif command.startswith('inv'):
-            inv = Packets.control_messages.Inv.DecodeInv(payloadStream)
+            inv = Inv.DecodeInv(payloadStream)
             message["payload"] = inv.get_decoded_info()
             self.display(message)
 
         elif command.startswith('addr'):
-            addr = Packets.control_messages.Addr.DecodeAddr(payloadStream)
+            addr = Addr.DecodeAddr(payloadStream)
             message["payload"] = addr.get_decoded_info()
             self.display(message)
 
         elif command.startswith('pong'):
-            pong = Packets.control_messages.Pong.DecodePong(payloadStream)
+            pong = Pong.DecodePong(payloadStream)
             message["payload"] = pong.get_decoded_info()
             self.display(message)
 
         elif command.startswith('version'):
-            version = Packets.control_messages.Version.DecodeVersion(payloadStream)
+
+            version = Version.DecodeVersion(payloadStream)
             message["payload"] = version.get_decoded_info()
             self.display(message)
 
         elif command.startswith('verack'):
-            verack = Packets.control_messages.Verack.DecodeVerack(payloadStream)
+            verack = Verack.DecodeVerack(payloadStream)
             message["payload"] = verack.get_decoded_info()
             self.display(message)
 
 
     def display(self, message):
         Utils.globals.node_messages.append(message)
+
 
         if Utils.globals.UI == "CLI" or Utils.globals.UI == "tkinter_gui":
             self.outfile.write(message["payload"])

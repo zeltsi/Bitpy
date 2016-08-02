@@ -27,6 +27,7 @@ class EncodeVersion:
         self.relay = to_bool(False)
 
     def forge(self):
+
         return self.version + self.services + self.timestamp + \
                self.addr_recv_services + self.addr_recv_ip + self.addr_recv_port + \
                self.addr_trans_services + self.addr_trans_ip + self.addr_trans_port + \
