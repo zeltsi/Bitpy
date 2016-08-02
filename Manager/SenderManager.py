@@ -1,6 +1,6 @@
-import Utils.globals
+__author__ = 'alexisgallepe and Shlomi Zeltsinger'
 
-__author__ = 'alexisgallepe'
+import Utils.globals
 
 from threading import Thread
 

@@ -1,4 +1,4 @@
-__author__ = 'alexisgallepe'
+__author__ = 'alexisgallepe and Shlomi Zeltsinger'
 
 from Utils.dataTypes import *
 
