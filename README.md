@@ -15,3 +15,5 @@ In order to run this code you might need to install the following packages:
 - netaddr
 
 This code was created by Shlomi Zeltsinger and Alexis gallepe. you can read more about our working process at http://zeltsinger.com
+
+- This code is for educational purposes only. Don’t use with any sensitive devices or as a real live Bitcoin client.

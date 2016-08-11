@@ -93,7 +93,6 @@ class PacketCreator:
     def display(self, message):
         Utils.globals.node_messages.append(message)
 
-
         if Utils.globals.UI == "CLI" or Utils.globals.UI == "tkinter_gui":
             self.outfile.write(message["payload"])
             self.outfile.flush()
