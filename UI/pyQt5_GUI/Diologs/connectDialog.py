@@ -16,7 +16,7 @@ class connectDialog(QtWidgets.QDialog):
         self.connect = QtWidgets.QPushButton(self)
         self.connect.resize(200, 50)
         self.connect.move(100, 100)
-        self.connect.setText("Conncect")
+        self.connect.setText("Connect")
         self.connect.clicked.connect(lambda: self.connect_clicked())
 
         self.labelIp = QtWidgets.QLabel(self)
